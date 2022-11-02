@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Home from './pages/Home'
+import Kasa from './Kasa.jsx'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Home />
+    <Kasa />
   </React.StrictMode>
 );

@@ -1,0 +1,21 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $c-primary;
+    .error__404 {
+        font-size: 288px;
+        font-weight: 700;
+    }
+    .error__message {
+        margin-top: 66px;
+        font-size: 36px;
+        text-align: center;
+    }
+    .error__homeLink {
+        font-size: 18px;
+        text-decoration: underline;
+        margin-top: 182px;
+    }
+}
