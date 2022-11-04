@@ -9,10 +9,10 @@ class Header extends Component {
                 <nav className="header__navbar">
                     <ul className="header__navbarList">
                         <li className="header__navbarListItem">
-                            <a className="header__navbarListAnchor" href="/">Accueil</a>
+                            <a className="header__navbarListAnchor" href="/home">Accueil</a>
                         </li>
                         <li className="header__navbarListItem">
-                            <a className="header__navbarListAnchor" href="/">À propos</a>
+                            <a className="header__navbarListAnchor" href="/about">À propos</a>
                         </li>
                     </ul>
                 </nav>
