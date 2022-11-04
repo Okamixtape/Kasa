@@ -1,0 +1,8 @@
+.gallery {
+    display: flex;
+    flex-direction: column;
+    background-color: $c-light-grey;
+    padding: 56px 50px;
+    border-radius: $border-radius;
+    margin: 43px auto;
+}

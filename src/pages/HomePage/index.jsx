@@ -9,7 +9,7 @@ export class HomePage extends Component {
     return (
       <div className="kasa__wrapper">
         <Header />
-        <Banner />
+        <Banner banner="homeBanner"/>
         <Gallery />
         <Footer />
       </div>
