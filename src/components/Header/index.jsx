@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import redLogo from "../../assets/redLogo.png";
 
 class Header extends Component {
@@ -9,10 +10,10 @@ class Header extends Component {
                 <nav className="header__navbar">
                     <ul className="header__navbarList">
                         <li className="header__navbarListItem">
-                            <a className="header__navbarListAnchor" href="/home">Accueil</a>
+                            <NavLink className="header__navbarListAnchor" to="/">Accueil</NavLink>
                         </li>
                         <li className="header__navbarListItem">
-                            <a className="header__navbarListAnchor" href="/about">À propos</a>
+                            <NavLink className="header__navbarListAnchor" to="/about">À propos</NavLink>
                         </li>
                     </ul>
                 </nav>
