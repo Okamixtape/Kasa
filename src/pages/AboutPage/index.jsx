@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Header from "../../components/Header";
 import Banner from "../../components/Banner";
-import About from "../../components/About";
+import Collapse from "../../components/Collapse";
 import Footer from "../../components/Footer";
+import aboutData from "../../data/aboutItemsData.json";
 
 export class AboutPage extends Component {
     render() {
@@ -10,7 +11,11 @@ export class AboutPage extends Component {
             <div className="kasa__wrapper">
                 <Header />
                 <Banner banner="aboutBanner"/>
-                <About />
+                <div className="collapse__wrapper">
+                    {aboutData.map((aboutItem) => (
+                        <Collapse key={aboutItem.title} title={aboutItem.title} text={aboutItem.text} />
+                    ))}
+                </div>
                 <Footer />
             </div>
         );

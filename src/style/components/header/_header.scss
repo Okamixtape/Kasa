@@ -12,4 +12,10 @@
     .header__navbarListItem {
         padding-left: 20px;
     }
+
+    .header__navbarListAnchor {
+        &.active {
+            text-decoration: underline;
+        }
+    }
 }
