@@ -1,6 +1,8 @@
 .gallery {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
     background-color: $c-light-grey;
     padding: 56px 50px;
     border-radius: $border-radius;
