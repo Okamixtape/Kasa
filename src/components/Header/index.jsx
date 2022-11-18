@@ -6,7 +6,9 @@ class Header extends Component {
     render() {
         return (
             <header className="header">
-                <img className="header__logo" src={redLogo} alt="logo de Kasa" />
+                <NavLink to="/">
+                    <img className="header__logo" src={redLogo} alt="logo de Kasa" />
+                </NavLink>
                 <nav className="header__navbar">
                     <ul className="header__navbarList">
                         <li className="header__navbarListItem">
