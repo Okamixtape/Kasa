@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "../../components/Header";
+import Carousel from "../../components/Carousel";
 import HouseCard from "../../components/HouseCard";
 import Collapse from "../../components/Collapse";
 import Footer from "../../components/Footer";
@@ -19,6 +20,7 @@ export class HousePage extends Component {
         ) : (
         <div className="kasa__wrapper">
             <Header />
+            <Carousel pictures={house.pictures} />
             <HouseCard
                 key={house.id}
                 title={house.title}

@@ -1,0 +1,32 @@
+.carousel {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 415px;
+    overflow: hidden;
+    margin: 50px 0;
+
+    .carousel__picture {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+    }
+
+    .carousel__leftIcon,
+    .carousel__rightIcon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .carousel__leftIcon {
+        left: 10px;
+    }
+
+    .carousel__rightIcon {
+        transform: translateY(-50%) rotate(180deg);
+        right: 10px;
+    }
+}
