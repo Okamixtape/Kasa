@@ -7,7 +7,6 @@ export class Rating extends Component {
         const stars = [];
         let color = "";
         const ratingNumber = this.props.rating;
-        console.log(ratingNumber);
 
         // On boucle sur le nombre d'étoile à colorier en rouge, le reste sera en gris
         for (let i = 0; i < 5; i++) {

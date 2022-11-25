@@ -51,6 +51,8 @@
 
 @media screen and (max-width: $tablet-down) {
     .collapse__wrapper {
+        margin: 2rem 0 4rem;
+
         .collapse__title {
             font-size: 20px;
             padding: 12px 20px;
@@ -65,12 +67,15 @@
         .collapse__icon {
             width: 15px;
             height: 10px;
+            margin-right: 24px;
         }
     }
 }
 
 @media screen and (max-width: $mobile-down) {
     .collapse__wrapper {
+        margin: 2rem 0 3rem;
+
         .collapse__title {
             font-size: 12px;
             padding: 8px 12px;
@@ -78,6 +83,9 @@
         .collapse__text,
         .collapse__list {
             font-size: 14px;
+        }
+        .collapse__icon {
+            margin-right: 16px;
         }
     }
 }

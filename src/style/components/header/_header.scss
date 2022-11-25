@@ -23,7 +23,7 @@
 @media screen and (max-width: $tablet-down) {
     .header {
         .header__logo {
-            width: 145px;
+            width: 124px;
         }
         .header__navbarListItem {
             padding-left: 10px;
@@ -37,6 +37,9 @@
 
 @media screen and (max-width: $large-mobile-down) {
     .header  {
+        .header__logo {
+            width: 100px;
+        }
         .header__navbarListAnchor {
             text-transform: uppercase;
             font-size: 0.5rem;

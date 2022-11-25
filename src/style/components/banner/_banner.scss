@@ -40,13 +40,13 @@
         .banner__text {
             font-size: 36px;
             text-align: left;
-            padding-left: 24px;
+            padding: 24px;
             overflow-wrap: break-word;
         }
     }
 }
 
-@media screen and (max-width: $mobile-down) {
+@media screen and (max-width: $large-mobile-down) {
     .banner {
         height: 110px;
 
