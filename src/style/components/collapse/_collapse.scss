@@ -1,6 +1,10 @@
 .collapse__wrapper {
     margin: 2rem 0 8rem;
 
+    &.-housePage {
+        margin: 2rem 0;
+    }
+
     .collapse__item {
         margin: 30px 0;
     }
@@ -38,5 +42,42 @@
         padding: 36px 18px 26px;
         top: -10px;
         z-index: 0;
+    }
+
+    .collapse__list {
+        font-weight: 300;
+    }
+}
+
+@media screen and (max-width: $tablet-down) {
+    .collapse__wrapper {
+        .collapse__title {
+            font-size: 20px;
+            padding: 12px 20px;
+        }
+        .collapse__text {
+            font-size: 20px;
+            padding: 24px;
+        }
+        .collapse__list {
+            font-size: 20px;
+        }
+        .collapse__icon {
+            width: 15px;
+            height: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-down) {
+    .collapse__wrapper {
+        .collapse__title {
+            font-size: 12px;
+            padding: 8px 12px;
+        }
+        .collapse__text,
+        .collapse__list {
+            font-size: 14px;
+        }
     }
 }

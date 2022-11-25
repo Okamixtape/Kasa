@@ -33,6 +33,9 @@ export class Carousel extends Component {
                 alt=""
                 key={this.props.pictures}
                 />
+                <div className="carousel__pagination">
+                    {this.state.index +1 } / {this.props.pictures.length}
+                </div>
             </div>
         );
     }
@@ -46,6 +49,10 @@ export class Carousel extends Component {
                 src={this.props.pictures[this.state.index]}
                 alt=""
                 />
+
+                <div className="carousel__pagination">
+                    {this.state.index +1 } / {this.props.pictures.length}
+                </div>
 
                 <svg
                 onClick={() => this.previousPicture()}

@@ -20,3 +20,11 @@ $card-radius: 10px;
 // Linear-gradient 
 
 $linear-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+
+// Breakpoints 
+
+$desktop-up: 1200px;
+$tablet-down: 768px;
+$small-tablet-down: 550px;
+$large-mobile-down: 500px;
+$mobile-down: 400px;

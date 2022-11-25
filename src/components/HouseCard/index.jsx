@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Rating from "../Rating";
+
 export class HouseCard extends Component {
     render() {
         const tags = this.props.tags;
@@ -15,77 +17,20 @@ export class HouseCard extends Component {
                     ))}
                 </div>
             </div>
-            <div>
+            <div className="houseCard__hostWrapper">
                 <div className="houseCard__host">
-                    <p className="houseCard__name"> {this.props.host.name} </p>
+                    <p className="houseCard__name">
+                    {this.props.host.name.split(" ")[0]} <br />
+                    {this.props.host.name.split(" ")[1]}
+                    </p>
                     <img
                     className="houseCard__picture"
                     src={this.props.host.picture}
                     alt="utilisateur"
                     />
                 </div>
-                <div className="houseCard__rating">
-                    <svg
-                    width="30"
-                    height="30"
-                    viewBox="0 0 30 30"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    >
-                    <path
-                        d="M18.645 12L15 0L11.355 12H0L9.27 18.615L5.745 30L15 22.965L24.27 30L20.745 18.615L30 12H18.645Z"
-                        fill="#E3E3E3"
-                    />
-                    </svg>
-                    <svg
-                    width="30"
-                    height="30"
-                    viewBox="0 0 30 30"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    >
-                    <path
-                        d="M18.645 12L15 0L11.355 12H0L9.27 18.615L5.745 30L15 22.965L24.27 30L20.745 18.615L30 12H18.645Z"
-                        fill="#E3E3E3"
-                    />
-                    </svg>
-                    <svg
-                    width="30"
-                    height="30"
-                    viewBox="0 0 30 30"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    >
-                    <path
-                        d="M18.645 12L15 0L11.355 12H0L9.27 18.615L5.745 30L15 22.965L24.27 30L20.745 18.615L30 12H18.645Z"
-                        fill="#E3E3E3"
-                    />
-                    </svg>
-                    <svg
-                    width="30"
-                    height="30"
-                    viewBox="0 0 30 30"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    >
-                    <path
-                        d="M18.645 12L15 0L11.355 12H0L9.27 18.615L5.745 30L15 22.965L24.27 30L20.745 18.615L30 12H18.645Z"
-                        fill="#E3E3E3"
-                    />
-                    </svg>
-                    <svg
-                    width="30"
-                    height="30"
-                    viewBox="0 0 30 30"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    >
-                    <path
-                        d="M18.645 12L15 0L11.355 12H0L9.27 18.615L5.745 30L15 22.965L24.27 30L20.745 18.615L30 12H18.645Z"
-                        fill="#E3E3E3"
-                    />
-                    </svg>
-                    {this.props.rating}
+                <div className="menuhome__rating">
+                    <Rating rating={this.props.rating} />
                 </div>
             </div>
         </div>

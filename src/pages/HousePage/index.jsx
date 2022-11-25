@@ -29,9 +29,21 @@ export class HousePage extends Component {
                 rating={house.rating}
                 host={house.host}
             />
-            <div className="collapse__wrapper">
-                <Collapse key="Description" title="Description" text={house.description} />
-                <Collapse key="Équipements" title="Équipements" text={house.equipments} />
+            <div className="collapse__wrapper -housePage">
+                <Collapse 
+                    key="Description" 
+                    title="Description" 
+                    text={house.description} 
+                />
+                <Collapse 
+                    key="Équipements" 
+                    title="Équipements" 
+                    text={house.equipments.map((element) => (
+                        <li className="collapse__list" key={element}>
+                            {element}
+                        </li>
+                    ))}
+                />
             </div>
             <Footer />
         </div>
