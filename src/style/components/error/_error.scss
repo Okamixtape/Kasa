@@ -19,3 +19,33 @@
         margin-top: 182px;
     }
 }
+
+@media screen and (max-width: $tablet-down) {
+    .error {
+        .error__404 {
+            font-size: 192px;
+        }
+        .error__text {
+            margin-top: 12px;
+            font-size: 24px;
+        }
+        .error__homeLink {
+            margin-top: 120px;
+        }
+    }
+}
+
+@media screen and (max-width: $large-mobile-down) {
+    .error {
+        .error__404 {
+            font-size: 96px;
+        }
+        .error__text {
+            font-size: 18px;
+        }
+        .error__homeLink {
+            font-size: 12px;
+            margin-top: 60px;
+        }
+    }
+}

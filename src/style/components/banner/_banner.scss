@@ -32,3 +32,26 @@
         color: $c-white;
     }
 }
+
+@media screen and (max-width: $tablet-down) {
+    .banner {
+        height: 180px;
+
+        .banner__text {
+            font-size: 36px;
+            text-align: left;
+            padding-left: 24px;
+            overflow-wrap: break-word;
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-down) {
+    .banner {
+        height: 110px;
+
+        .banner__text {
+            font-size: 24px;
+        }
+    }
+}

@@ -8,3 +8,10 @@
     border-radius: $border-radius;
     margin: 43px auto;
 }
+
+@media screen and (max-width: $small-tablet-down) {
+    .gallery {
+        background-color: $c-white;
+        padding: 0px;
+    }
+}

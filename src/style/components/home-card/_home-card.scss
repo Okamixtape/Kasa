@@ -27,3 +27,10 @@
         overflow-wrap: break-word;
     }
 }
+
+@media screen and (max-width: $small-tablet-down) {
+    .homeCard {
+        width: 335px;
+        height: 255px;
+    }
+}

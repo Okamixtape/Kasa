@@ -5,7 +5,7 @@ import Error from "../../components/Error";
 export class ErrorPage extends Component {
     render() {
         return (
-            <div className="kasa__wrapper">
+            <div className="kasa__wrapper -paddingBottom">
                 <Header />
                 <Error />
             </div>

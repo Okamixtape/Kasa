@@ -13,6 +13,18 @@
         border-radius: 25px;
     }
 
+    .carousel__pagination {
+        position: absolute;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 142.6%;
+        color: $c-white;
+    }
+
     .carousel__leftIcon,
     .carousel__rightIcon {
         position: absolute;
@@ -28,5 +40,29 @@
     .carousel__rightIcon {
         transform: translateY(-50%) rotate(180deg);
         right: 10px;
+    }
+}
+
+@media screen and (max-width: $tablet-down) {
+    .carousel {
+        height: 350px;
+
+        .carousel__leftIcon,
+        .carousel__rightIcon {
+            height: 50px;
+            width: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-down) {
+    .carousel {
+        height: 255px;
+
+        .carousel__leftIcon,
+        .carousel__rightIcon {
+            height: 30px;
+            width: 30px;
+        }
     }
 }
