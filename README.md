@@ -1,6 +1,14 @@
 # Kasa
 Projet n°11 du parcours "Développeur d'application - JavaScript React" d'OpenClassrooms
 
+# Installation et lancement de l'application en local
+
+Taper la commande : npm i ou yarn install
+
+Puis : npm start ou yarn run start
+
+Et aller sur votre navigateur à l'adresse suivante : http://localhost:3000/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
