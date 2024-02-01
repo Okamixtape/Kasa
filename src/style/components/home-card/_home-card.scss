@@ -1,8 +1,8 @@
 .homeCard {
     position: relative;
-    margin: 20px;
     width: 340px;
     height: 340px;
+    margin: 20px;
 
     .homeCard__background {
         position: absolute;
@@ -12,17 +12,19 @@
         background: $linear-gradient;
         border-radius: $card-radius;
     }
+
     .homeCard__image {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: $card-radius;
     }
+
     .homeCard__text {
         position: absolute;
+        right: 20px;
         bottom: 20px;
         left: 20px;
-        right: 20px;
         color: $c-white;
         overflow-wrap: break-word;
     }

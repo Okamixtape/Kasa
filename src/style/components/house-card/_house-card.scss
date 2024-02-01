@@ -7,40 +7,47 @@
         font-size: 1.5rem;
         margin-bottom: 10px;
     }
+
     .houseCard__location,
     .houseCard__name {
         font-size: 0.75rem;
     }
+
     .houseCard__tags {
         display: flex;
         margin-top: 20px;
     }
+
     .houseCard__tag {
-        margin-right: 10px;
-        background-color: $c-primary;
-        color: $c-white;
         width: 115px;
         height: 25px;
-        border-radius: 10px;
         font-size: 0.5rem;
         line-height: 25px;
         text-align: center;
+        color: $c-white;
+        background-color: $c-primary;
+        border-radius: 10px;
+        margin-right: 10px;
     }
+
     .houseCard__picture {
         margin-left: 10px;
         width: 64px;
         border-radius: 50%;
     }
+
     .houseCard__host {
         display: flex;
         align-items: center;
     }
+
     .houseCard__hostWrapper {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-end;
     }
+
     .houseCard__name {
         text-align: end;
     }
@@ -48,8 +55,8 @@
 
 .collapse__wrapper.-housePage {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
+    grid-template-columns: repeat(2, 1fr);
     gap: 60px;
 }
 
@@ -60,30 +67,37 @@
         .houseCard__title {
             font-size: 1.1rem;
         }
+
         .houseCard__location {
             font-size: 0.6rem;
         }
+
         .houseCard__tag {
-            font-size: 0.4rem;
             width: 84px;
             height: 18px;
+            font-size: 0.4rem;
             line-height: 18px;
         }
+
         .houseCard__name {
             font-size: 0.6rem;
         }
+
         .houseCard__picture {
             width: 45px;
         }
+
         .houseCard__hostWrapper {
             margin-top: 1rem;
             flex-direction: row-reverse;
         }
+
         .houseCard__rating svg {
             width: 22px;
             height: 22px;
         }
     }
+
     .collapse__wrapper.-housePage {
         flex-direction: column;
         grid-template-columns: 1fr;
@@ -96,12 +110,15 @@
         .houseCard__title {
             font-size: 0.75rem;
         }
+
         .houseCard__picture {
             width: 32px;
         }
+
         .houseCard__name {
             font-size: 0.5rem;
         }
+
         .houseCard__rating svg {
             width: 15px;
             height: 15px;

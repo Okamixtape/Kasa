@@ -3,21 +3,22 @@
 // -- Global
 
 .kasa__wrapper {
-    padding: 40px 100px 0px;
+    padding: 40px 100px 0;
 
     &.-paddingBottom {
         padding-bottom: 40px;
     }
 
     @media screen and (max-width: $tablet-down) {
-        padding: 20px 50px 0px;
+        padding: 20px 50px 0;
 
         &.-paddingBottom {
             padding-bottom: 20px;
         }
     }
+
     @media screen and (max-width: $mobile-down) {
-        padding: 10px 20px 0px;
+        padding: 10px 20px 0;
 
         &.-paddingBottom {
             padding-bottom: 10px;

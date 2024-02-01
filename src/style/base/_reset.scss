@@ -1,15 +1,15 @@
 // -- Reset
 
 * {
-    margin: 0;
+    box-sizing: border-box;
     padding: 0;
-    outline: 0;
+    margin: 0;
     font-weight: normal;
     font-style: normal;
-    border: 0;
     text-decoration: none;
+    border: 0;
+    outline: 0;
     list-style-type: none;
-    box-sizing: border-box;
 }
 
 a {

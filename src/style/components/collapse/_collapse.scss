@@ -11,13 +11,21 @@
 
     .collapse__titleWrapper {
         position: relative;
-        background-color: $c-primary;
-        color: $c-white;
+        z-index: 1;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        color: $c-white;
+        background-color: $c-primary;
         border-radius: 5px;
-        z-index: 1;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+            // stylelint-disable-next-line scss/no-global-function-names
+            background-color: darken($c-primary, 10%);
+            transition: background-color 0.3s ease-in-out;
+        }
     }
     
     .collapse__icon {
@@ -26,22 +34,22 @@
     }
     
     .collapse__title {
+        padding: 6px 18px;
         font-size: 24px;
         line-height: 142.6%;
-        padding: 6px 18px;
     }
     
     .collapse__text {
         position: relative;
-        background-color: $c-light-grey;
-        border-radius: 5px;
-        font-weight: 300;
-        font-size: 24px;
-        line-height: 142.6%;
-        color: $c-primary;
-        padding: 36px 18px 26px;
         top: -10px;
         z-index: 0;
+        padding: 36px 18px 26px;
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 142.6%;
+        color: $c-primary;
+        background-color: $c-light-grey;
+        border-radius: 5px;
     }
 
     .collapse__list {
@@ -54,16 +62,19 @@
         margin: 2rem 0 4rem;
 
         .collapse__title {
-            font-size: 20px;
             padding: 12px 20px;
-        }
-        .collapse__text {
             font-size: 20px;
-            padding: 24px;
         }
+
+        .collapse__text {
+            padding: 24px;
+            font-size: 20px;
+        }
+
         .collapse__list {
             font-size: 20px;
         }
+
         .collapse__icon {
             width: 15px;
             height: 10px;
@@ -77,13 +88,15 @@
         margin: 2rem 0 3rem;
 
         .collapse__title {
-            font-size: 12px;
             padding: 8px 12px;
+            font-size: 12px;
         }
+
         .collapse__text,
         .collapse__list {
             font-size: 14px;
         }
+
         .collapse__icon {
             margin-right: 16px;
         }
