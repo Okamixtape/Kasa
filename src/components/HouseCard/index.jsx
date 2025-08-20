@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
-import Rating from "../Rating";
+import AverageRating from "../AverageRating";
 
 export class HouseCard extends Component {
     render() {
-        const tags = this.props.tags;
+        const { tags, titleAs: TitleTag = 'h3' } = this.props;
 
     return (
         <div key={this.props.id} className="houseCard">
             <div>
-                <h3 className="houseCard__title">{this.props.title}</h3>
+                <TitleTag className="houseCard__title">{this.props.title}</TitleTag>
                 <p className="houseCard__location">{this.props.location}</p>
                 <div className="houseCard__tags">
                     {tags.map((tag) => (
@@ -30,8 +30,9 @@ export class HouseCard extends Component {
                     />
                 </div>
                 <div className="menuhome__rating">
-                    <Rating rating={this.props.rating} />
+                    <AverageRating reviews={this.props.reviews} />
                 </div>
+                <button className="houseCard__booking-button" onClick={this.props.onBooking}>Réserver</button>
             </div>
         </div>
         );

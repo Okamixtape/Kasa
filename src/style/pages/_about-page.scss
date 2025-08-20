@@ -1,0 +1,40 @@
+@import '../base/var';
+
+.about-page {
+    &__content {
+        padding: 0 20px;
+        margin: 40px auto;
+        max-width: 1024px; 
+    }
+
+    &__intro {
+        margin-bottom: 40px;
+
+        h2 {
+            font-size: 28px;
+            font-weight: 500;
+            color: $c-text-main;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+    }
+}
+
+@media screen and (max-width: $tablet-down) {
+    .about-page {
+        &__intro {
+            h2 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+.search-bar {
+    position: relative;
+
+    &:focus-within .search-bar__icon {
+        stroke: $c-primary;
+    }
+    width: 50%;
+    margin: 2rem auto;
+
+    &__icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        stroke: $c-grey;
+        pointer-events: none; 
+    }
+
+    &__input {
+        width: 100%;
+        padding: 0.8rem 0.8rem 0.8rem 45px;
+        border: 1px solid $c-light-grey;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-family: $font-body;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $c-primary;
+        }
+
+
+    }
+}
+
+@media screen and (max-width: $tablet-down) {
+    .search-bar {
+        width: 80%;
+    }
+}

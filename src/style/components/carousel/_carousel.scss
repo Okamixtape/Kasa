@@ -2,7 +2,8 @@
     position: relative;
     display: flex;
     width: 100%;
-    height: 415px;
+    aspect-ratio: 16 / 9;
+    max-height: 500px;
     margin: 50px 0;
     overflow: hidden;
 
@@ -44,7 +45,7 @@
 
 @media screen and (max-width: $tablet-down) {
     .carousel {
-        height: 350px;
+        aspect-ratio: 3 / 2;
 
         .carousel__leftIcon,
         .carousel__rightIcon {
@@ -56,7 +57,7 @@
 
 @media screen and (max-width: $mobile-down) {
     .carousel {
-        height: 255px;
+        aspect-ratio: 4 / 3;
 
         .carousel__leftIcon,
         .carousel__rightIcon {

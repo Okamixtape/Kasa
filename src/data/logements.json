@@ -27,6 +27,21 @@
 		"tags": [
 			"Batignolle",
 			"Montmartre"
+		],
+		"price": 150,
+		"reviews": [
+			{
+				"author": "Marie Dupont",
+				"rating": 5,
+				"comment": "Incroyable ! L'appartement est encore mieux que sur les photos. Très propre et l'hôte était super accueillant.",
+				"date": "2023-07-20"
+			},
+			{
+				"author": "Thomas Lefebvre",
+				"rating": 5,
+				"comment": "Un séjour parfait. Le quartier est calme et agréable. Je recommande vivement.",
+				"date": "2023-08-10"
+			}
 		]
 	},
 	{
@@ -60,6 +75,21 @@
 			"Canal Saint Martin",
 			"République",
 			"Appartement"
+		],
+		"price": 180,
+		"reviews": [
+			{
+				"author": "Léa Petit",
+				"rating": 4,
+				"comment": "Très bel appartement, spacieux et bien situé. Un petit bémol sur la pression de la douche, mais sinon tout était super.",
+				"date": "2023-06-15"
+			},
+			{
+				"author": "Julien Martin",
+				"rating": 4,
+				"comment": "Nous avons passé un excellent week-end. L'appartement est idéal pour découvrir le quartier du Canal Saint Martin.",
+				"date": "2023-07-05"
+			}
 		]
 	},
 	{
@@ -89,6 +119,15 @@
 			"Buttes Chaumont",
 			"Laumière",
 			"Studio"
+		],
+		"price": 95,
+		"reviews": [
+			{
+				"author": "Chloé Dubois",
+				"rating": 3,
+				"comment": "Correct pour le prix. Le studio est un peu petit mais fonctionnel. Le quartier est super.",
+				"date": "2023-08-01"
+			}
 		]
 	},
 	{
@@ -120,6 +159,21 @@
 			"Marais",
 			"Parc",
 			"Night Life"
+		],
+		"price": 120,
+		"reviews": [
+			{
+				"author": "Lucas Garcia",
+				"rating": 4,
+				"comment": "Un vrai petit cocon ! Parfait pour un week-end en amoureux. Le quartier est très vivant.",
+				"date": "2023-05-25"
+			},
+			{
+				"author": "Inès Rossi",
+				"rating": 3,
+				"comment": "Bon emplacement, mais l'appartement est assez bruyant la nuit à cause des bars dans la rue.",
+				"date": "2023-06-30"
+			}
 		]
 	},
 	{
@@ -151,7 +205,8 @@
 		"tags": [
 			"Goncourt",
 			"Proche commerces"
-		]
+		],
+		"price": 220
 	},
 	{
 		"id": "f72a452f",
@@ -179,19 +234,17 @@
 			"Montmartre",
 			"Culture",
 			"Charme"
-		]
+		],
+		"price": 130
 	},
 	{
 		"id": "b4c67936",
 		"title": "Cheap - Studio 18ème",
 		"cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-6-1.jpg",
 		"pictures": [
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-6-1.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-6-2.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-6-3.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-6-4.jpg"
+			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-6-1.jpg"
 		],
-		"description": "Ce Studio entièrement fonctionnel sera votre parfait pied à terre pour toutes vos excursions parisiennes. Idéalement situé près des lignes 2 et 4, vous accéderez très rapidement à tous les points touristiques de Paris.",
+		"description": "Ce Studio entièrement fonctionnel sera votre parfait pied à terre pour toutes vos excursions parisiennes. Idéalement situé près de Montmartre, vous pourrez profiter de la vue sur le Sacré Coeur depuis la fenêtre.",
 		"host": {
 			"name": "Hugo Perrier",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-4.jpg"
@@ -199,164 +252,132 @@
 		"rating": "3",
 		"location": "Ile de France - Paris 18e",
 		"equipments": [
-			"Salle de bains",
-			"Frigo",
-			"Wi-fi",
-			"Sèche Cheveux",
-			"Bureau",
-			"Parking"
+			"Bouilloire",
+			"SDB",
+			"Wi-fi"
 		],
 		"tags": [
-			"Transports",
-			"Cheap",
-			"18ème"
-		]
+			"Montmartre",
+			"Sacré Coeur"
+		],
+		"price": 80
 	},
 	{
-		"id": "bc6f7112",
-		"title": "Superbe appartement proche Tour Eiffel",
+		"id": "7c3dd00c",
+		"title": "Appartement de luxe (5 étoiles) - Panthéon",
 		"cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-7-1.jpg",
 		"pictures": [
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-7-1.jpg",
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-7-2.jpg",
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-7-3.jpg",
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-7-4.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-7-5.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-7-6.jpg"
+			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-7-5.jpg"
 		],
-		"description": "Ce superbe appartement vous surprendra par son charme. Entièrement refait à neuf, il est équipé avec goût. La taille des pièces vous fera douter que vous êtes à Paris. Mais il vous suffit de sortir pour voir que vous êtes au coeur des plus belles attractions de Paris : le Louvre, la Tour Eiffel, le Grand Palais sont à deux pas. À vous de venir découvrir Paris !",
+		"description": "Profitez d'un séjour de rêve dans cet appartement des plus luxueux, situé en plein coeur de Paris. Parfait pour les voyageurs exigeants.",
 		"host": {
-			"name": "Sébastien Fournier",
+			"name": "Kevin Yang",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-5.jpg"
 		},
 		"rating": "5",
-		"location": "Ile de France - Paris 6e",
+		"location": "Ile de France - Paris 5e",
 		"equipments": [
-			"Wi-fi",
-			"Sèche Cheveux",
-			"Machine à laver",
-			"Parking",
-			"Lit King Size",
-			"Ascenseur"
+			"SDB de luxe",
+			"Cuisine équipée",
+			"Lave-vaisselle",
+			"Cave à vin",
+			"Lave-linge"
 		],
 		"tags": [
-			"Luxe",
-			"Tour Eiffel",
-			"T3",
-			"6ème"
-		]
+			"Panthéon",
+			"Saint-Michel",
+			"Notre-Dame"
+		],
+		"price": 220
 	},
 	{
-		"id": "cb2f9222",
-		"title": "Suite familiale",
+		"id": "ac2b4c23",
+		"title": "Appartement spacieux avec vue sur le Sacré Coeur",
 		"cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-8-1.jpg",
 		"pictures": [
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-8-1.jpg",
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-8-2.jpg",
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-8-3.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-8-4.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-8-5.jpg"
+			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-8-4.jpg"
 		],
-		"description": "Paris vous tend les bras ! En famille ou entre amis, venez découvrir la ville de l'amour dans un appartement de goût. Vous pourrez profiter de tous les commerces seulement à quelques minutes de l'appartement. Sa proximité avec la gare Montparnasse en fait également un choix idéal pour celles et ceux qui doivent prendre un train.",
+		"description": "Ce grand appartement avec vue sur le Sacré Coeur est l'endroit idéal pour profitez de la vue sur tout Paris. Idéal pour les familles ou les groupes d'amis.",
 		"host": {
-			"name": "Adrien Chiran",
+			"name": "Alexandre Dumas",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-6.jpg"
 		},
 		"rating": "4",
-		"location": "Ile de France - Paris 14e",
+		"location": "Ile de France - Paris 18e",
 		"equipments": [
-			"Climatisation",
-			"Machine à laver",
-			"Sèche Cheveux",
-			"Wi-fi",
-			"Parking"
+			"SDB",
+			"Cuisine équipée",
+			"Frigo",
+			"Lave-linge",
+			"Vue sur tout Paris"
 		],
 		"tags": [
-			"Montparnasse",
-			"Commerces",
-			"Famille"
-		]
+			"Montmartre",
+			"Sacré Coeur"
+		],
+		"price": 280
 	},
 	{
-		"id": "d60ca600",
-		"title": "Appartement moderne sur parc",
+		"id": "3ff1c4de",
+		"title": "Loft avec vue sur l'Opéra Garnier",
 		"cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-9-1.jpg",
 		"pictures": [
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-9-1.jpg",
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-9-2.jpg",
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-9-3.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-9-4.jpg"
+			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-9-4.jpg",
+			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-9-5.jpg"
 		],
-		"description": "Respirer en plein coeur de Paris ? C'est possible ! Avec vue sur un parc résidentiel, vous pourrez ouvrir les fenêtres sans avoir à souffrir du bruit des voitures et de la pollution. Au contraire, vous pourrez écouter les oiseaux. Notre appartement est également idéalement situé au coeur du 11ème arrondissement. Proche des lignes 3 et 2, vous pourrez découvrir Paris sans effort !",
+		"description": "Posez vos valises dans ce loft luxueux, et laissez-vous transporter par la vue sur l'Opéra Garnier. Au coeur de Paris, vous pourrez découvrir à pied le quartier des grands magasins.",
 		"host": {
-			"name": "Adrien Chiran",
-			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-6.jpg"
+			"name": "Clara Lemaire",
+			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-7.jpg"
 		},
-		"rating": "3",
-		"location": "Ile de France - Paris 11e",
+		"rating": "5",
+		"location": "Ile de France - Paris 9e",
 		"equipments": [
-			"Vue Parc",
-			"Chauffage",
-			"Sèche linge",
-			"Sèche Cheveux",
-			"Wi-fi",
-			"Ascenseur"
+			"SDB",
+			"Cuisine équipée",
+			"Frigo",
+			"Lave-linge",
+			"Vue sur l'Opéra Garnier"
 		],
 		"tags": [
-			"Père Lachaise",
-			"11e",
-			"Metro 3",
-			"Metro 2"
-		]
+			"Opéra Garnier",
+			"Grands Boulevards",
+			"Galeries Lafayette"
+		],
+		"price": 350
 	},
 	{
-		"id": "2cf259e1",
-		"title": "Charmant Studio Marais",
+		"id": "d60ca438",
+		"title": "Appartement design et moderne près de la Place de la République",
 		"cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-10-1.jpg",
 		"pictures": [
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-10-1.jpg",
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-10-2.jpg",
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-10-3.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-10-4.jpg"
+			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-10-4.jpg",
+			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-10-5.jpg"
 		],
-		"description": "Situé en plein coeur du Marais, notre studio est idéal pour les touristes en quête de découverte. Sa cuisine toute équipée est particulièrement pratique.",
-		"host": {
-			"name": "Victor Moran",
-			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-7.jpg"
-		},
-		"rating": "4",
-		"location": "Ile de France - Paris 11e",
-		"equipments": [
-			"Clic-clac",
-			"Four",
-			"Sèche Cheveux",
-			"Wi-fi"
-		],
-		"tags": [
-			"Marais",
-			"Studio",
-			"Parc"
-		]
-	},
-	{
-		"id": "5323c29b",
-		"title": "Studio fonctionnel République",
-		"cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-11-3.jpg",
-		"pictures": [
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-11-3.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-11-2.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-11-4.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-11-5.jpg"
-		],
-		"description": "Idéalement situé à 2 pas de la place de la République, ce studio particulièrement fonctionnel est parfait pour découvrir Paris. Proche de tous les points d'intérêts grâce aux 5 lignes de métro qui sont à 5 minutes, vous pourrez rentabiliser votre temps passé à la capitale.",
+		"description": "Dans cet appartement au design moderne, vous serez au coeur de Paris, et à deux pas de la Place de la République. Parfait pour les voyageurs qui aiment l'animation.",
 		"host": {
 			"name": "Sarah Devit",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-8.jpg"
 		},
-		"rating": "3",
+		"rating": "4",
 		"location": "Ile de France - Paris 3e",
 		"equipments": [
-			"Rangements",
+			"SDB",
+			"Cuisine équipée",
+			"Frigo",
 			"Lit",
 			"Sèche Cheveux",
 			"Wi-fi",
@@ -369,7 +390,8 @@
 			"Studio",
 			"Proche Métros",
 			"Commerces"
-		]
+		],
+		"price": 110
 	},
 	{
 		"id": "af6d2d48",
@@ -400,7 +422,8 @@
 			"Forêt",
 			"Nature",
 			"Musée d'Ecouen"
-		]
+		],
+		"price": 85
 	},
 	{
 		"id": "7cbb378e",
@@ -434,7 +457,8 @@
 			"Forêt",
 			"Nature",
 			"Grande maison"
-		]
+		],
+		"price": 250
 	},
 	{
 		"id": "ba55a0cc",
@@ -470,7 +494,8 @@
 			"Nature",
 			"Groupe",
 			"Maison"
-		]
+		],
+		"price": 200
 	},
 	{
 		"id": "1e181317",
@@ -503,7 +528,8 @@
 			"La Défense",
 			"Loft",
 			"Luxe"
-		]
+		],
+		"price": 260
 	},
 	{
 		"id": "1e180563",
@@ -534,12 +560,13 @@
 		"tags": [
 			"Vue Parc",
 			"Apt de Charme"
-		]
+		],
+		"price": 140
 	},
 	{
 		"id": "2139a317",
 		"title": "Cheap - Chambre Paris 20",
-		"cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-17-1.jpg",
+		"cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com.com/projects/front-end-kasa-project/accommodation-17-1.jpg",
 		"pictures": [
 			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-17-1.jpg"
 		],
@@ -558,7 +585,8 @@
 		"tags": [
 			"Vue Parc",
 			"Métros"
-		]
+		],
+		"price": 70
 	},
 	{
 		"id": "6ff132c6",
@@ -587,7 +615,8 @@
 			"Studio",
 			"Charmant",
 			"13e"
-		]
+		],
+		"price": 100
 	},
 	{
 		"id": "cb02d69b",
@@ -614,6 +643,7 @@
 			"Louvre",
 			"Marais",
 			"Rivoli"
-		]
+		],
+		"price": 190
 	}
 ]

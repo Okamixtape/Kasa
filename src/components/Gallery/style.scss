@@ -1,0 +1,18 @@
+@import '../../style/base/var';
+@import '../GalleryCard/style.scss';
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: $c-light-grey;
+    border-radius: $border-radius;
+    padding: 30px 0;
+    margin-top: 40px;
+
+    &__no-results {
+        font-family: $font-body;
+        font-size: $fs-h3;
+        color: $c-text-main;
+    }
+}

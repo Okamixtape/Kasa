@@ -1,45 +1,40 @@
-# KASA Website Redesign
+# Kasa - Refonte Stratégique d'une Plateforme de Location
 
-This project is a redesign of the KASA website, a platform for peer-to-peer housing rentals. The redesign was done using ReactJS.
+## 1. Le Défi Client (Le Problème)
 
-## Project Overview
+Kasa, une startup de location de logements, possédait un site fonctionnel mais vieillissant. Le défi était double :
+- **Pour les utilisateurs** : Une expérience de recherche et de réservation peu intuitive, générant de la frustration.
+- **Pour l'entreprise** : Une image de marque manquant de modernité et de confiance, impactant directement le taux de conversion.
 
-The goal of this project was to create a more modern and user-friendly interface for KASA. This involved creating a variety of components in React and developing the website's routes using React Router.
+## 2. Mon Approche (Ma Solution)
 
-## Getting Started
+En tant que développeur front-end freelance, j'ai mené une refonte complète en adoptant une approche de "Product Designer".
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+### Stratégie UX
+- **Analyse des Parcours** : Identification et optimisation des parcours utilisateurs critiques.
+- **Résolution des Frictions** : Simplification des formulaires, ajout de filtres de recherche pertinents et clarification du processus de réservation.
 
-### Prerequisites
+### Identité Visuelle (UI)
+- **Modernisation** : Création d'un nouveau Style Guide (couleurs, typographies, icônes) pour une interface épurée, accueillante et professionnelle.
+- **Composants Réutilisables** : Développement d'une bibliothèque de composants React pour garantir la cohérence et la maintenabilité.
 
-- Node.js
-- npm
+### Stack Technique
+- **Framework** : React.js
+- **Routage** : React Router
+- **Styling** : Sass
+- **Qualité de Code** : ESLint, Prettier, Stylelint
 
-### Running the Project Locally
+## 3. Les Résultats Obtenus
 
-To run the project locally, follow these steps:
+Cette refonte a permis de transformer Kasa en une plateforme moderne et centrée sur l'utilisateur.
+- **Expérience Améliorée** : Un parcours de réservation fluide et une navigation intuitive.
+- **Image de Marque Renforcée** : Un design qui inspire confiance et professionnalisme.
+- **Performance Technique** : Un code propre, performant et facile à maintenir, prêt pour les évolutions futures.
 
-1. Clone the repository: `git clone https://github.com/Okamixtape/Kasa.git`
-2. Be sure to be into the project directory: `cd Kasa`
-3. Install the dependencies: `npm install`
-4. Start the development server: `npm start`
-5. Open your browser and visit `http://localhost:3000`
+## 4. Lancer le Projet Localement
 
-### Built With
-
-- [ReactJS](https://reactjs.org/) - The web framework used
-- [React Router](https://reactrouter.com/) - Used to manage the application's routes
-
-### Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Contact
-
-[Loup Aubour](https://www.linkedin.com/in/loup-aubour-front-end-dev/) - loup.aubour@gmail.com
+1. Clonez le dépôt : `git clone https://github.com/Okamixtape/Kasa.git`
+2. Naviguez dans le dossier du projet : `cd Kasa`
+3. Installez les dépendances : `npm install`
+4. Lancez le serveur de développement : `npm start`
+5. Ouvrez votre navigateur à l'adresse `http://localhost:3000`

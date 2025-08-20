@@ -10,6 +10,22 @@ $c-primary: $c-orange-red;
 
 $c-black: #000;
 $c-white: #fff;
+$c-text-main: #333333;
+$c-accent-success: #4CAF50;
+$c-grey: #808080;
+
+// -- Fonts
+
+// Font families are defined in _fonts.scss
+
+// Font Sizes
+$fs-base: 1rem; // 16px
+$fs-small: 0.875rem; // 14px
+
+$fs-h1: 3rem;    // 48px
+$fs-h2: 2.25rem; // 36px
+$fs-h3: 1.5rem;  // 24px
+$fs-h4: 1.125rem; // 18px
 
 // Border-radius
 

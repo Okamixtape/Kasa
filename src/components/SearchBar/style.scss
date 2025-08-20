@@ -1,0 +1,54 @@
+@import '../../style/base/var';
+@import '../../style/base/fonts';
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 600px;
+
+    &__icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $c-text-main;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 15px 45px 15px 50px; // Right padding for clear button
+        border: 1px solid #e0e0e0;
+        border-radius: 15px;
+        font-size: 1rem;
+        font-family: $font-body;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $c-primary;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &__clear-button {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        color: #aaa;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+
+        &:hover {
+            color: $c-text-main;
+        }
+    }
+}

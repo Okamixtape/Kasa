@@ -19,9 +19,9 @@
     }
 
     .houseCard__tag {
-        width: 115px;
+        width: 160px;
         height: 25px;
-        font-size: 0.5rem;
+        font-size: $fs-small;
         line-height: 25px;
         text-align: center;
         color: $c-white;
@@ -51,6 +51,23 @@
     .houseCard__name {
         text-align: end;
     }
+
+    &__booking-button {
+        background-color: $c-primary;
+        color: $c-white;
+        border: none;
+        border-radius: 10px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: darken($c-primary, 10%);
+        }
+    }
 }
 
 .collapse__wrapper.-housePage {
@@ -75,7 +92,7 @@
         .houseCard__tag {
             width: 84px;
             height: 18px;
-            font-size: 0.4rem;
+            font-size: 0.75rem;
             line-height: 18px;
         }
 
@@ -95,6 +112,13 @@
         .houseCard__rating svg {
             width: 22px;
             height: 22px;
+        }
+
+        .houseCard__booking-button {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            margin-top: 0;
+            align-self: center;
         }
     }
 
@@ -122,6 +146,11 @@
         .houseCard__rating svg {
             width: 15px;
             height: 15px;
+        }
+
+        .houseCard__booking-button {
+            padding: 8px 16px;
+            font-size: 0.8rem;
         }
     }
 }

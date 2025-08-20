@@ -1,16 +1,14 @@
-import React, { Component } from "react";
-import Header from "../../components/Header";
-import Error from "../../components/Error";
+import React from 'react';
+import Header from '../../components/Header';
+import Error from '../../components/Error';
 
-export class ErrorPage extends Component {
-    render() {
-        return (
-            <div className="kasa__wrapper -paddingBottom">
-                <Header />
-                <Error />
-            </div>
-        );
-    }
-}
+const ErrorPage = () => {
+    return (
+        <div className="kasa__wrapper -paddingBottom fade-in">
+            <Header />
+            <Error />
+        </div>
+    );
+};
 
 export default ErrorPage;

@@ -1,24 +1,25 @@
-import React, { Component } from "react";
-import HomeCard from "../HomeCard";
-import data from "../../data/logements.json";
+import React from 'react';
+import GalleryCard from '../GalleryCard';
+import './style.scss';
 
-export class Gallery extends Component {
-    render() {
-        const houseData = data;
+const Gallery = ({ filteredData }) => {
 
-        return (
-            <div className="gallery">
-                {houseData.map((house) => (
-                    <HomeCard
+    return (
+        <div className="gallery">
+            {filteredData.length > 0 ? (
+                filteredData.map(house => (
+                    <GalleryCard
                         key={house.id}
                         id={house.id}
-                        img={house.cover}
+                        cover={house.cover}
                         title={house.title}
                     />
-                ))}
-            </div>
-        );
-    }
-}
+                ))
+            ) : (
+                <p className="gallery__no-results">Aucun logement ne correspond à votre recherche.</p>
+            )}
+        </div>
+    );
+};
 
 export default Gallery;

@@ -21,6 +21,8 @@
     }
 
     .homeCard__text {
+        font-family: $font-headings;
+        font-size: $fs-h4;
         position: absolute;
         right: 20px;
         bottom: 20px;
