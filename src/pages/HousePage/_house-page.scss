@@ -1,0 +1,35 @@
+@import '../../style/base/_var.scss';
+
+.house-page__layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.house-page__main-content {
+    .collapse__wrapper.-housePage {
+        display: flex;
+        flex-direction: column;
+        gap: 30px; // Space between the two collapses
+        margin-top: 20px;
+    }
+}
+
+.house-page__sidebar {
+    // This will contain the booking widget
+    position: sticky;
+    top: 20px; // Adjust as needed for header height
+    height: fit-content;
+}
+
+@media screen and (max-width: $tablet-down) {
+    .house-page__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .house-page__sidebar {
+        position: static;
+        margin-top: 20px;
+    }
+}

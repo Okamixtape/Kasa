@@ -9,7 +9,25 @@
         color: #ff6060;
         margin-top: 0;
         margin-bottom: 1.5rem;
+    
+    .booking-widget__login-prompt {
+        text-align: center;
+        color: #484848;
+        padding: 2rem 1rem;
+        font-size: 1.1rem;
+        line-height: 1.5;
+
+        a {
+            color: #ff6060;
+            text-decoration: underline;
+            font-weight: 500;
+
+            &:hover {
+                color: #e05555;
+            }
+        }
     }
+}
 
     .error-message {
         color: #e74c3c;

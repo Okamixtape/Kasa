@@ -21,7 +21,7 @@ const MyBookingsPage = () => {
             setError('');
             try {
                 const token = localStorage.getItem('token');
-                const response = await fetch('http://localhost:3001/api/my-bookings', {
+                                const response = await fetch(`${process.env.REACT_APP_API_URL}/my-bookings`, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },
@@ -51,7 +51,7 @@ const MyBookingsPage = () => {
         setError('');
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:3001/api/bookings/${bookingId}`, {
+                        const response = await fetch(`${process.env.REACT_APP_API_URL}/bookings/${bookingId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`,

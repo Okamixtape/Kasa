@@ -1,44 +1,35 @@
-import React, { Component } from "react";
+import React from 'react';
 import './_banner.scss';
-import homeBanner from "../../assets/homeBanner.png";
-import aboutBanner from "../../assets/aboutBanner.png";
+import homeBanner from '../../assets/homeBanner.png';
+import aboutBanner from '../../assets/aboutBanner.png';
+import SearchBar from '../SearchBar'; // Assuming we'll reuse and adapt SearchBar
 
-class Banner extends Component {
-    render() {
-        const { banner, title } = this.props;
+const Banner = ({ banner, title, onSearch }) => {
+    const bannerImage = banner === 'homeBanner' ? homeBanner : aboutBanner;
 
-        const bannerImage = banner === "homeBanner" ? homeBanner : aboutBanner;
-        const bannerText = title || (banner === "homeBanner" ? "Chez vous, partout et ailleurs" : "");
-
+    if (banner === 'homeBanner') {
         return (
-            <div className="banner">
-                <img className="banner__image" src={bannerImage} alt="Bannière de Kasa" />
+            <div className="banner -hero">
+                <img className="banner__image" src={bannerImage} alt="Intérieur d'un appartement lumineux" />
                 <div className="banner__mask"></div>
-                <h1 className="banner__text">{bannerText}</h1>
+                <div className="hero-content">
+                    <h1>Chez vous, partout et ailleurs</h1>
+                    <p>Découvrez plus de 500 logements de qualité vérifiés</p>
+                    <SearchBar onSearch={onSearch} />
+                    <div className="trust-indicators">
+                        ⭐ 4.8/5 • 🏠 500+ logements • ✅ 100% vérifiés
+                    </div>
+                </div>
             </div>
         );
     }
-}
 
-/*
-// OLD CODE
-class Banner extends Component {
-    render() {
-        return this.props.banner === "homeBanner" ? (
-            <div className="banner">
-                <img className="banner__image" src={homeBanner} alt="Bannière de Kasa" />
-                <div className="banner__mask"></div>
-                <h1 className="banner__text">Chez vous, partout et ailleurs</h1>
-            </div>
-        ) : (
-            <div className="banner">
-                <img className="banner__image" src={aboutBanner} alt="Bannière de Kasa" />
-                <div className="banner__mask"></div>
-                <h1 className="banner__text"></h1>
-            </div>
-        );
-    }
-}
-*/
+    return (
+        <div className="banner">
+            <img className="banner__image" src={bannerImage} alt="Bannière de Kasa" />
+            <h1 className="banner__text">{title}</h1>
+        </div>
+    );
+};
 
 export default Banner;

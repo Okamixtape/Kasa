@@ -14,7 +14,7 @@ const SignupPage = () => {
         setError('');
 
         try {
-            const response = await fetch('http://localhost:3001/api/signup', {
+                        const response = await fetch(`${process.env.REACT_APP_API_URL}/signup`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -32,52 +32,12 @@
         margin-right: 10px;
     }
 
-    .houseCard__picture {
-        margin-left: 10px;
-        width: 64px;
-        border-radius: 50%;
+
+
+        text-decoration: none;
+        display: inline-block; // To ensure padding and margin are applied correctly
     }
 
-    .houseCard__host {
-        display: flex;
-        align-items: center;
-    }
-
-    .houseCard__hostWrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
-
-    .houseCard__name {
-        text-align: end;
-    }
-
-    &__booking-button {
-        background-color: $c-primary;
-        color: $c-white;
-        border: none;
-        border-radius: 10px;
-        padding: 12px 24px;
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-        margin-top: 20px;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-            background-color: darken($c-primary, 10%);
-        }
-    }
-}
-
-.collapse__wrapper.-housePage {
-    display: grid;
-    justify-content: space-between;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 60px;
-}
 
 @media screen and (max-width: $tablet-down) {
     .houseCard {
@@ -124,11 +84,6 @@
         }
     }
 
-    .collapse__wrapper.-housePage {
-        flex-direction: column;
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
 }
 
 @media screen and (max-width: $mobile-down) {

@@ -34,7 +34,7 @@ const AboutPage = () => {
                 />
             </Helmet>
             <main className="kasa__wrapper fade-in">
-                <Banner banner="aboutBanner" title="À propos de Kasa" />
+                <Banner banner="about" title="À propos de Kasa" />
                 <section className="about-page__content">
                     <div className="about-page__intro">
                         <h2>Notre Mission : Réinventer l&apos;hospitalité</h2>
@@ -42,7 +42,7 @@ const AboutPage = () => {
                             Fondée en 2020, Kasa est née d&apos;une vision simple : transformer la location de logements en une expérience exceptionnelle, où la confiance, le confort et la sécurité sont au cœur de chaque séjour. Nous croyons que voyager est une opportunité de découvrir, de se connecter et de créer des souvenirs inoubliables. C&apos;est pourquoi nous nous engageons à offrir des logements de qualité, vérifiés par nos soins, et un service personnalisé pour que chaque voyageur se sente chez lui, où qu&apos;il soit.
                         </p>
                     </div>
-                    <div className="collapse__wrapper">
+                    <div className="collapse__wrapper -aboutPage">
                         {aboutData.map(aboutItem => (
                             <Collapse
                                 key={aboutItem.title}

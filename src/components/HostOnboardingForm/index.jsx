@@ -274,7 +274,7 @@ const Step8 = ({ onBack, formData, navigate }) => {
         }
 
         try {
-            const response = await fetch('http://localhost:3001/api/logements', {
+                        const response = await fetch(`${process.env.REACT_APP_API_URL}/logements`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,

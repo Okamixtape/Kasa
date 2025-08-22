@@ -5,10 +5,13 @@ import Carousel from '../../components/Carousel';
 import HouseCard from '../../components/HouseCard';
 import Collapse from '../../components/Collapse';
 import ReviewsSection from '../../components/ReviewsSection';
-import BookingWidget from '../../components/BookingWidget';
+import HouseSidebar from '../../components/HouseSidebar';
 import ErrorPage from '../ErrorPage';
+import { useAuth } from '../../context/AuthContext';
+import './_house-page.scss';
 
 const HousePage = () => {
+    const { user } = useAuth();
     const { id } = useParams();
     const [house, setHouse] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -17,7 +20,7 @@ const HousePage = () => {
     useEffect(() => {
         setLoading(true);
         setError(false);
-        fetch(`http://localhost:3001/api/logements/${id}`)
+                fetch(`${process.env.REACT_APP_API_URL}/logements/${id}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('House not found');
@@ -74,29 +77,35 @@ const HousePage = () => {
             </Helmet>
             <main className="kasa__wrapper fade-in">
                 <Carousel pictures={house.pictures} />
-                <HouseCard
-                    key={house.id}
-                    title={house.title}
-                    titleAs="h1" // Use h1 for the house page title
-                    location={house.location}
-                    tags={house.tags}
-                    host={house.host}
-                    reviews={house.reviews}
-                />
-                <div className="collapse__wrapper -housePage">
-                    <Collapse
-                        key="Description"
-                        title="Description"
-                        text={house.description}
-                    />
-                    <Collapse
-                        key="Équipements"
-                        title="Équipements"
-                        text={house.equipments}
-                    />
+                <div className="house-page__layout">
+                    <div className="house-page__main-content">
+                        <HouseCard
+                            key={house.id}
+                            title={house.title}
+                            titleAs="h1"
+                            location={house.location}
+                            tags={house.tags}
+                            host={house.host}
+                            reviews={house.reviews}
+                        />
+                        <div className="collapse__wrapper -housePage">
+                            <Collapse
+                                key="Description"
+                                title="Description"
+                                text={house.description}
+                            />
+                            <Collapse
+                                key="Équipements"
+                                title="Équipements"
+                                text={house.equipments}
+                            />
+                        </div>
+                    </div>
+                    <div className="house-page__sidebar">
+                        <HouseSidebar host={house.host} reviews={house.reviews} houseId={house.id} />
+                    </div>
                 </div>
                 <ReviewsSection reviews={house.reviews} />
-                <BookingWidget houseId={house.id} />
             </main>
         </>
     );

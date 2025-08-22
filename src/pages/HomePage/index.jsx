@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Banner from '../../components/Banner';
 import Gallery from '../../components/Gallery';
-import SearchBar from '../../components/SearchBar';
 import useDebounce from '../../hooks/useDebounce';
 import BackToTopButton from '../../components/BackToTopButton';
 import FeaturedBlogCard from '../../components/FeaturedBlogCard';
@@ -15,7 +14,7 @@ const HomePage = () => {
     const [filteredData, setFilteredData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/api/logements')
+                fetch(`${process.env.REACT_APP_API_URL}/logements`)
             .then(response => response.json())
             .then(data => {
                 setAllHouseData(data);
@@ -51,8 +50,7 @@ const HomePage = () => {
                 />
             </Helmet>
             <main className="kasa__wrapper fade-in">
-                <Banner banner="homeBanner" />
-                <SearchBar onSearch={setSearchTerm} />
+                <Banner banner="homeBanner" onSearch={setSearchTerm} />
                 <div role="status" aria-live="polite" className="visually-hidden">
                     {debouncedSearchTerm && `${filteredData.length} résultats trouvés`}
                 </div>

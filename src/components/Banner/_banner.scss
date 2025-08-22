@@ -2,6 +2,45 @@
 @import '../../style/base/_fonts.scss';
 
 .banner {
+    &.-hero {
+        display: grid;
+        height: 400px;
+        text-align: center;
+
+        // All direct children will be placed in the same grid cell to create a stacking layout
+        & > * {
+            grid-area: 1 / 1 / -1 / -1;
+        }
+
+        .hero-content {
+            z-index: 2; // Ensure content is on top
+            color: $c-white;
+            padding: 20px;
+            max-width: 800px;
+            place-self: center; // Center the content block within the grid area
+
+            h1 {
+                font-size: $fs-h1;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: $fs-h4;
+                margin-bottom: 30px;
+            }
+
+            .search-bar {
+                max-width: 500px;
+                margin: 0 auto 20px auto;
+            }
+
+            .trust-indicators {
+                font-size: $fs-small;
+                font-weight: 500;
+            }
+        }
+    }
+
     position: relative;
     height: 225px;
     margin: 0 auto;
@@ -15,13 +54,12 @@
     }
 
     .banner__mask {
-        position: absolute;
-        top: 0;
         width: 100%;
         height: 100%;
         background: $c-black;
         border-radius: $border-radius;
         opacity: 0.3;
+        z-index: 1; // Place mask above the image
     }
 
     .banner__text {
@@ -33,11 +71,33 @@
         font-size: $fs-h1;
         text-align: center;
         color: $c-white;
+        z-index: 2;
+    }
+
+    &.-about {
+        .banner__mask {
+            display: none; // Completely remove the mask element
+        }
+        .banner__text {
+            color: $c-black; // Change text to black for readability
+        }
     }
 }
 
 @media screen and (max-width: $tablet-down) {
     .banner {
+        &.-hero {
+            height: 350px;
+            .hero-content {
+                h1 {
+                    font-size: $fs-h1;
+                }
+                p {
+                    font-size: $fs-h5;
+                }
+            }
+        }
+
         height: 180px;
 
         .banner__text {
@@ -51,6 +111,21 @@
 
 @media screen and (max-width: $large-mobile-down) {
     .banner {
+        &.-hero {
+            height: auto;
+            min-height: 300px;
+            padding: 40px 0;
+
+            .hero-content {
+                h1 {
+                    font-size: $fs-h2;
+                }
+                p {
+                    font-size: $fs-base;
+                }
+            }
+        }
+
         height: 110px;
 
         .banner__text {

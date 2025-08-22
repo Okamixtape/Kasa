@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './_booking-widget.scss';
@@ -18,7 +19,7 @@ const BookingWidget = ({ houseId }) => {
     useEffect(() => {
         const fetchBookedDates = async () => {
             try {
-                const response = await fetch(`http://localhost:3001/api/houses/${houseId}/bookings`);
+                                const response = await fetch(`${process.env.REACT_APP_API_URL}/houses/${houseId}/bookings`);
                 if (!response.ok) {
                     throw new Error('Could not fetch booking data.');
                 }
@@ -55,7 +56,7 @@ const BookingWidget = ({ houseId }) => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:3001/api/bookings', {
+                        const response = await fetch(`${process.env.REACT_APP_API_URL}/bookings`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -87,7 +88,13 @@ const BookingWidget = ({ houseId }) => {
     };
 
     if (!user) {
-        return <p>Veuillez vous connecter pour réserver ce logement.</p>;
+        return (
+            <div className="booking-widget">
+                <div className="booking-widget__login-prompt">
+                    <Link to="/login">Connectez-vous</Link> ou <Link to="/signup">inscrivez-vous</Link> pour réserver.
+                </div>
+            </div>
+        );
     }
 
     return (

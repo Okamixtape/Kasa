@@ -10,8 +10,8 @@ const logements = require('./logements.json');
 const app = express();
 const port = 3001; // Corrected port to match frontend calls
 
-// In a real app, use a secure, environment-specific secret
-const JWT_SECRET = 'your-super-secret-key-that-is-long-and-secure';
+// Use an environment variable for the JWT secret in production
+const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-key-that-is-long-and-secure-for-dev';
 const usersFilePath = path.join(__dirname, 'users.json');
 const bookingsFilePath = path.join(__dirname, 'bookings.json');
 const logementsFilePath = path.join(__dirname, 'logements.json');

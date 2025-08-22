@@ -1,59 +1,50 @@
-@import '../base/var';
+.about-page__intro {
+    max-width: 800px; // Limit width for better readability
+    margin: 40px auto; // Center the block and add vertical spacing
+    text-align: center; // Center the text inside
 
-.about-page {
-    &__content {
-        padding: 0 20px;
-        margin: 40px auto;
-        max-width: 1024px;
-    }
-
-    &__intro,
-    &__quality,
-    &__team {
-        margin-bottom: 3rem;
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #333;
-            text-align: justify;
-        }
-    }
-
-    &__team {
-        text-align: center;
-    }
-
-    .team-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    .collapse__wrapper {
-        margin-bottom: 3rem;
+    h2 {
+        margin-bottom: 20px; // Space between title and paragraph
     }
 }
 
-@media screen and (max-width: $tablet-down) {
-    .about-page {
-        &__intro,
-        &__quality,
-        &__team {
-            h2 {
-                font-size: 1.5rem;
-            }
-            p {
-                font-size: 1rem;
-            }
-        }
+.about-page__quality {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: $c-light-grey;
+    border-radius: $card-radius;
+    text-align: center;
+}
+
+.about-page__team {
+    max-width: 800px;
+    margin: 100px auto 60px; // Increase top margin to add space
+    text-align: center;
+
+    h2 {
+        margin-bottom: 20px;
     }
+
+    p {
+        text-align: center; // Center align for a card layout
+        max-width: 600px; // Constrain line length for readability
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.collapse__wrapper.-aboutPage {
+    max-width: 800px; // Limit width to match other sections
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
