@@ -7,11 +7,9 @@ import Collapse from '../../components/Collapse';
 import ReviewsSection from '../../components/ReviewsSection';
 import HouseSidebar from '../../components/HouseSidebar';
 import ErrorPage from '../ErrorPage';
-import { useAuth } from '../../context/AuthContext';
 import './_house-page.scss';
 
 const HousePage = () => {
-    const { user } = useAuth();
     const { id } = useParams();
     const [house, setHouse] = useState(null);
     const [loading, setLoading] = useState(true);
