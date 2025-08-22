@@ -1,4 +1,5 @@
 import React from 'react';
+import './_average-rating.scss';
 import Rating from '../Rating';
 
 const AverageRating = ({ reviews }) => {

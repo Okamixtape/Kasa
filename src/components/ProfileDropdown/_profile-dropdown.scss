@@ -1,0 +1,86 @@
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+
+    &__button {
+        background: none;
+        border: 1px solid #ff6060;
+        color: #ff6060;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: background-color 0.2s ease, color 0.2s ease;
+
+        &:hover {
+            background-color: #ff6060;
+            color: white;
+
+            .arrow path {
+                stroke: white;
+            }
+        }
+
+        .arrow {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+
+            &.open {
+                transform: rotate(180deg);
+            }
+
+            path {
+                transition: stroke 0.2s ease;
+            }
+        }
+    }
+
+    &__menu {
+        position: absolute;
+        top: 110%;
+        right: 0;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        list-style: none;
+        padding: 0.5rem 0;
+        margin: 0;
+        width: 200px;
+        z-index: 100;
+        overflow: hidden;
+    }
+
+    &__item {
+        margin: 0;
+    }
+
+    &__link {
+        display: block;
+        padding: 0.75rem 1.5rem;
+        color: #333;
+        text-decoration: none;
+        background: none;
+        border: none;
+        width: 100%;
+        text-align: left;
+        font-size: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f6f6f6;
+            color: #ff6060;
+        }
+    }
+
+    &__logout-button {
+        color: #e74c3c;
+
+        &:hover {
+            color: white;
+            background-color: #e74c3c;
+        }
+    }
+}

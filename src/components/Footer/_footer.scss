@@ -1,0 +1,47 @@
+@import '../../style/base/_var.scss';
+
+.footer {
+    display: flex;
+    padding: 66px 0 30px;
+    margin: 0 -100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $c-white;
+    background-color: $c-black;
+    row-gap: 30px;
+
+    &__nav {
+        a {
+            color: $c-white;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet-down) {
+    .footer {
+        margin: 3rem -60px;
+        margin-bottom: 0;
+
+        .footer__copyright {
+            font-size: 18px;
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-down) {
+    .footer {
+        height: 150px;
+        margin: 3rem -20px;
+        margin-bottom: 0;
+
+        .footer__copyright {
+            font-size: 12px;
+        }
+    }
+}

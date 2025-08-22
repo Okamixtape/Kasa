@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './_banner.scss';
 import homeBanner from "../../assets/homeBanner.png";
 import aboutBanner from "../../assets/aboutBanner.png";
 

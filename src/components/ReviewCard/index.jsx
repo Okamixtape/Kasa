@@ -1,4 +1,5 @@
 import React from 'react';
+import './_review-card.scss';
 import Rating from '../Rating';
 
 const ReviewCard = ({ review }) => {

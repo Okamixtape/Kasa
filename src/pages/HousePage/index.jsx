@@ -1,24 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import Header from '../../components/Header';
 import Carousel from '../../components/Carousel';
 import HouseCard from '../../components/HouseCard';
 import Collapse from '../../components/Collapse';
 import ReviewsSection from '../../components/ReviewsSection';
-import BookingModal from '../../components/BookingModal';
-import Footer from '../../components/Footer';
-
-import data from '../../data/logements.json';
+import BookingWidget from '../../components/BookingWidget';
 import ErrorPage from '../ErrorPage';
 
 const HousePage = () => {
     const { id } = useParams();
-    const houseData = data;
-    const house = houseData.find((elt) => elt.id === id);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [house, setHouse] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
-    if (!house) {
+    useEffect(() => {
+        setLoading(true);
+        setError(false);
+        fetch(`http://localhost:3001/api/logements/${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('House not found');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setHouse(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error('Failed to fetch house data:', err);
+                setError(true);
+                setLoading(false);
+            });
+    }, [id]);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error || !house) {
         return <ErrorPage />;
     }
 
@@ -43,7 +64,7 @@ const HousePage = () => {
     };
 
     return (
-        <div className="kasa__wrapper fade-in">
+        <>
             <Helmet>
                 <title>{pageTitle}</title>
                 <meta name="description" content={pageDescription} />
@@ -51,34 +72,33 @@ const HousePage = () => {
                     {JSON.stringify(structuredData)}
                 </script>
             </Helmet>
-            <Header />
-            <Carousel pictures={house.pictures} />
-            <HouseCard
-                key={house.id}
-                title={house.title}
-                titleAs="h1" // Use h1 for the house page title
-                location={house.location}
-                tags={house.tags}
-                host={house.host}
-                reviews={house.reviews}
-                onBooking={() => setIsModalOpen(true)}
-            />
-            <div className="collapse__wrapper -housePage">
-                <Collapse
-                    key="Description"
-                    title="Description"
-                    text={house.description}
+            <main className="kasa__wrapper fade-in">
+                <Carousel pictures={house.pictures} />
+                <HouseCard
+                    key={house.id}
+                    title={house.title}
+                    titleAs="h1" // Use h1 for the house page title
+                    location={house.location}
+                    tags={house.tags}
+                    host={house.host}
+                    reviews={house.reviews}
                 />
-                <Collapse
-                    key="Équipements"
-                    title="Équipements"
-                    text={house.equipments}
-                />
-            </div>
-            <ReviewsSection reviews={house.reviews} />
-            <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} house={house} />
-            <Footer />
-        </div>
+                <div className="collapse__wrapper -housePage">
+                    <Collapse
+                        key="Description"
+                        title="Description"
+                        text={house.description}
+                    />
+                    <Collapse
+                        key="Équipements"
+                        title="Équipements"
+                        text={house.equipments}
+                    />
+                </div>
+                <ReviewsSection reviews={house.reviews} />
+                <BookingWidget houseId={house.id} />
+            </main>
+        </>
     );
 };
 

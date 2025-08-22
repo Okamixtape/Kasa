@@ -1,0 +1,60 @@
+@import '../../style/base/_var.scss';
+
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $c-primary;
+
+    .error__404 {
+        font-size: 288px;
+        font-weight: 700;
+    }
+
+    .error__text {
+        margin-top: 66px;
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .error__homeLink {
+        font-size: 18px;
+        text-decoration: underline;
+        margin-top: 182px;
+    }
+}
+
+@media screen and (max-width: $tablet-down) {
+    .error {
+        .error__404 {
+            font-size: 192px;
+        }
+
+        .error__text {
+            margin-top: 12px;
+            font-size: 24px;
+        }
+
+        .error__homeLink {
+            margin-top: 120px;
+        }
+    }
+}
+
+@media screen and (max-width: $large-mobile-down) {
+    .error {
+        .error__404 {
+            font-size: 96px;
+        }
+
+        .error__text {
+            font-size: 18px;
+        }
+
+        .error__homeLink {
+            font-size: 12px;
+            margin-top: 60px;
+        }
+    }
+}

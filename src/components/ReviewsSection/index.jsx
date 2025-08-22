@@ -1,4 +1,5 @@
 import React from 'react';
+import './_reviews-section.scss';
 import ReviewCard from '../ReviewCard';
 
 const ReviewsSection = ({ reviews }) => {

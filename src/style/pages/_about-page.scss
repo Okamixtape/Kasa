@@ -4,36 +4,55 @@
     &__content {
         padding: 0 20px;
         margin: 40px auto;
-        max-width: 1024px; 
+        max-width: 1024px;
     }
 
-    &__intro {
-        margin-bottom: 40px;
+    &__intro,
+    &__quality,
+    &__team {
+        margin-bottom: 3rem;
 
         h2 {
-            font-size: 28px;
+            font-size: 2rem;
             font-weight: 500;
-            color: $c-text-main;
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
             text-align: center;
         }
 
         p {
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
             text-align: justify;
         }
+    }
+
+    &__team {
+        text-align: center;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .collapse__wrapper {
+        margin-bottom: 3rem;
     }
 }
 
 @media screen and (max-width: $tablet-down) {
     .about-page {
-        &__intro {
+        &__intro,
+        &__quality,
+        &__team {
             h2 {
-                font-size: 24px;
+                font-size: 1.5rem;
             }
             p {
-                font-size: 16px;
+                font-size: 1rem;
             }
         }
     }

@@ -1,0 +1,22 @@
+.team-member-card {
+    text-align: center;
+
+    &__image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    &__name {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+    }
+
+    &__role {
+        color: #666;
+    }
+}

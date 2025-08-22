@@ -1,0 +1,63 @@
+.bookings-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.booking-card {
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    &__image {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    &__info {
+        padding: 1rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        h2 {
+            margin: 0 0 0.5rem;
+            color: #ff6060;
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin: 0.2rem 0;
+            color: #333;
+        }
+    }
+
+    &__actions {
+        margin-top: auto;
+        padding-top: 1rem;
+        align-self: flex-end;
+    }
+
+    &__cancel-btn {
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #c0392b;
+        }
+    }
+}

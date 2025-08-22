@@ -1,0 +1,151 @@
+.become-host-page {
+    .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assets/aboutBanner.png') no-repeat center center;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        padding: 5rem 2rem;
+        border-radius: 25px;
+        margin: 2rem 0;
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background-color: #ff6060;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: darken(#ff6060, 10%);
+            }
+        }
+    }
+
+    .content-section {
+        padding: 2rem 0;
+        text-align: center;
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ff6060;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+
+            .feature-item {
+                flex-basis: 30%;
+                padding: 2rem;
+                background-color: #f9f9f9;
+                border-radius: 15px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                text-align: center;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+                }
+
+                .feature-icon {
+                    font-size: 3rem;
+                    color: #ff6060;
+                    margin-bottom: 1.5rem;
+                }
+                
+                h3 {
+                    font-size: 1.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                    line-height: 1.6;
+                }
+            }
+        }
+
+        .testimonials-section {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid #eee;
+
+            h2 {
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
+                color: #ff6060;
+                text-align: center;
+            }
+
+            .testimonials {
+                display: flex;
+                justify-content: space-around;
+                gap: 2rem;
+
+                .testimonial-item {
+                    flex-basis: 45%;
+                    background-color: #f9f9f9;
+                    padding: 2rem;
+                    border-radius: 15px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+                    .testimonial-text {
+                        font-style: italic;
+                        margin-bottom: 1rem;
+                        color: #333;
+                    }
+
+                    .testimonial-author {
+                        font-weight: bold;
+                        text-align: right;
+                        color: #ff6060;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 3rem 1rem;
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+        }
+
+        .content-section {
+            .features {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .testimonials-section {
+                .testimonials {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

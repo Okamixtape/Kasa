@@ -1,6 +1,6 @@
 import React from 'react';
+import './_gallery.scss';
 import GalleryCard from '../GalleryCard';
-import './style.scss';
 
 const Gallery = ({ filteredData }) => {
 

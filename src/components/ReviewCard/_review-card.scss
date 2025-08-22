@@ -1,0 +1,44 @@
+@import '../../style/base/_var.scss';
+
+.reviewCard {
+    background-color: $c-light-grey;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    &__author {
+        font-weight: 500;
+        font-size: 16px;
+        color: $c-primary;
+    }
+
+    &__date {
+        font-size: 12px;
+        color: darken($c-text-main, 20%);
+    }
+
+    &__rating {
+        margin-bottom: 10px;
+        display: flex;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &__comment {
+        font-size: 14px;
+        line-height: 1.5;
+        color: $c-text-main;
+    }
+}

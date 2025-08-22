@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import './_error.scss';
 import { NavLink } from "react-router-dom";
 
 class Error extends Component {

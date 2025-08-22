@@ -1,48 +1,44 @@
-import React, { Component } from "react";
+import React, { useState, useRef } from 'react';
+import './_collapse.scss';
 import arrow from '../../assets/arrowDown.png';
 
-export class Collapse extends Component {
-    constructor(props) {
-        super(props);
+const Collapse = ({ title, text }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const contentRef = useRef(null);
 
-        // Élément de liste Collapse fermé par défaut
-        this.state = { open: false };
-    }
-
-    // Gestion de l'ouverture et de la fermeture des listes
-    toggleCollapse = () => {
-        this.setState((prevState) => ({
-            open: !prevState.open
-        }));
+    const toggleCollapse = () => {
+        setIsOpen(!isOpen);
     };
 
-    render() {
-        
-
-        return (
-            <section className="collapse__item" onClick={this.toggleCollapse}>
-                <div className="collapse__titleWrapper">
-                    <h2 className="collapse__title">{this.props.title}</h2>
-                    <img
-                        className={`collapse__icon ${this.state.open ? 'open' : ''}`}
-                        src={arrow}
-                        alt="Afficher le contenu"
-                    />
-                </div>
-                <div className="collapse__text" style={{ display: this.state.open ? 'block' : 'none' }}>
-                    {Array.isArray(this.props.text) ? (
+    return (
+        <section className="collapse__item">
+            <div className="collapse__titleWrapper" onClick={toggleCollapse}>
+                <h2 className="collapse__title">{title}</h2>
+                <img
+                    className={`collapse__icon ${isOpen ? 'open' : ''}`}
+                    src={arrow}
+                    alt="Afficher le contenu"
+                />
+            </div>
+            <div
+                ref={contentRef}
+                className="collapse__content-wrapper"
+                style={{ maxHeight: isOpen ? `${contentRef.current.scrollHeight}px` : '0px' }}
+            >
+                <div className="collapse__text">
+                    {Array.isArray(text) ? (
                         <ul className="collapse__list">
-                            {this.props.text.map((item, index) => (
+                            {text.map((item, index) => (
                                 <li key={index}>{item}</li>
                             ))}
                         </ul>
                     ) : (
-                        <p>{this.props.text}</p>
+                        <p>{text}</p>
                     )}
                 </div>
-            </section>
-        );
-    }
-}
+            </div>
+        </section>
+    );
+};
 
 export default Collapse;

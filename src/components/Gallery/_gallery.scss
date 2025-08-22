@@ -1,0 +1,26 @@
+@import '../../style/base/_var.scss';
+
+.gallery {
+    display: flex;
+    padding: 56px 50px;
+    margin: 43px auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: $c-light-grey;
+    border-radius: $border-radius;
+
+    .gallery__no-results {
+        width: 100%;
+        text-align: center;
+        font-size: 1.2rem;
+        color: $c-text-main;
+        margin: 4rem 0;
+    }
+}
+
+@media screen and (max-width: $small-tablet-down) {
+    .gallery {
+        padding: 0;
+        background-color: $c-white;
+    }
+}

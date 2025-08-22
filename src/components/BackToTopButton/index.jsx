@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './style.scss';
+import './_back-to-top-button.scss';
 
 
 const BackToTopButton = () => {
