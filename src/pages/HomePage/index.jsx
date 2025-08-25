@@ -2,18 +2,17 @@ import React, { useState, useEffect } from 'react';
 import Meta from '../../components/Meta';
 import Banner from '../../components/Banner';
 import Gallery from '../../components/Gallery';
-import FilterBar from '../../components/FilterBar';
+import SearchForm from '../../components/SearchForm';
 import useDebounce from '../../hooks/useDebounce';
 import BackToTopButton from '../../components/BackToTopButton';
 import HomeHighlights from '../../components/HomeHighlights';
 import GlobalMap from '../../components/GlobalMap';
 
 const HomePage = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const debouncedSearchTerm = useDebounce(searchTerm, 500);
     const [allHouseData, setAllHouseData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
-    const [filters, setFilters] = useState({ maxPrice: 500, tag: '' });
+    const [filters, setFilters] = useState({ searchTerm: '', maxPrice: 500, tag: '' });
+    const debouncedSearchTerm = useDebounce(filters.searchTerm, 500);
     const [favorites, setFavorites] = useState(new Set());
     const token = localStorage.getItem('token');
 
@@ -44,7 +43,7 @@ const HomePage = () => {
 
     useEffect(() => {
         const filtered = allHouseData.filter(house => {
-            const term = debouncedSearchTerm.toLowerCase();
+            const term = filters.searchTerm.toLowerCase();
             const titleMatch = house.title.toLowerCase().includes(term);
             const locationMatch = house.location.toLowerCase().includes(term);
             const searchMatch = titleMatch || locationMatch;
@@ -55,7 +54,7 @@ const HomePage = () => {
             return searchMatch && priceMatch && tagMatch;
         });
         setFilteredData(filtered);
-    }, [debouncedSearchTerm, allHouseData, filters]);
+    }, [filters, allHouseData]);
 
     const handleToggleFavorite = (logementId, isFavorite) => {
         const newFavorites = new Set(favorites);
@@ -80,8 +79,8 @@ const HomePage = () => {
         <>
             <Meta />
             <main className="kasa__wrapper fade-in">
-                <Banner banner="homeBanner" onSearch={setSearchTerm} />
-                <FilterBar onFilterChange={setFilters} allTags={allTags} />
+                <Banner banner="homeBanner" />
+                <SearchForm onFilterChange={setFilters} allTags={allTags} />
                 <div role="status" aria-live="polite" className="visually-hidden">
                     {debouncedSearchTerm && `${filteredData.length} résultats trouvés`}
                 </div>

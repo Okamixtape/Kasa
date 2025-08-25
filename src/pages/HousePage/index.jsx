@@ -4,7 +4,7 @@ import Meta from '../../components/Meta';
 import Collapse from '../../components/Collapse';
 import HouseCard from '../../components/HouseCard';
 import BackLink from '../../components/BackLink';
-import ReviewsSection from '../../components/ReviewsSection';
+import Reviews from '../../components/Reviews';
 import Carousel from '../../components/Carousel';
 import HouseSidebar from '../../components/HouseSidebar';
 import ErrorPage from '../ErrorPage';
@@ -113,7 +113,7 @@ const HousePage = () => {
                     </div>
                     <HouseSidebar house={house} />
                 </div>
-                <ReviewsSection reviews={house.reviews} logementId={house.id} onReviewSubmit={handleReviewSubmit} token={token} />
+                <Reviews reviews={house.reviews} logementId={house.id} onReviewSubmit={handleReviewSubmit} token={token} />
             </main>
         </>
     );

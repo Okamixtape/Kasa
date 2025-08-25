@@ -128,7 +128,8 @@ header.header {
     }
 }
 
-    .header__navbarListItem--mobile-only {
+    .header__navbarListItem--mobile-only,
+    .header__navbarListItem--divider-mobile {
         display: none; // Hide on desktop
     }
 
@@ -196,8 +197,16 @@ header.header {
             width: 100%;
         }
 
-        .header__navbarListItem--mobile-only {
+        .header__navbarListItem--mobile-only,
+        .header__navbarListItem--divider-mobile {
             display: block; // Show in mobile menu
+        }
+
+        .header__navbarListItem--divider-mobile {
+            height: 1px;
+            background-color: #e0e0e0;
+            margin: 20px 0;
+            width: 100%;
         }
 
         .header__navbarListAnchor {

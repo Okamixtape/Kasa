@@ -1,0 +1,13 @@
+@use '../../style/base/var' as *;
+
+.star-rating {
+  display: inline-flex;
+  color: $c-light-grey;
+
+  .star {
+    font-size: 1.2em;
+    &.-filled {
+      color: $c-primary;
+    }
+  }
+}

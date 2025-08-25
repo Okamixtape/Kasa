@@ -34,7 +34,7 @@ const ProfileDropdown = () => {
     return (
         <div className="profile-dropdown" ref={dropdownRef}>
             <button onClick={() => setIsOpen(!isOpen)} className="profile-dropdown__button">
-                <div class="profile-dropdown__user-info">
+                <div className="profile-dropdown__user-info">
                     <span>Bonjour, {user.name}</span>
                     <span className={`role-badge role-badge--${user.role}`}>{user.role === 'host' ? 'Hôte' : 'Locataire'}</span>
                 </div>

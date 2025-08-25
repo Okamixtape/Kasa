@@ -1,5 +1,17 @@
+@use '../../style/base/var' as *;
+
 .team-member-card {
     text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
 
     &__image {
         width: 150px;
@@ -8,6 +20,13 @@
         object-fit: cover;
         margin-bottom: 1rem;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    @media screen and (max-width: $mobile-down) {
+        &__image {
+            width: 120px;
+            height: 120px;
+        }
     }
 
     &__name {

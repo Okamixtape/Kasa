@@ -1,3 +1,8 @@
+/* Override Leaflet's default popup margin to fix centering */
+.leaflet-popup {
+  margin-bottom: 0 !important;
+}
+
 .custom-marker {
   background-color: white;
   border: 2px solid #ff6060;
@@ -19,23 +24,31 @@
 }
 
 .map-popup .leaflet-popup-content-wrapper {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1px; /* Small padding to prevent content overflow */
 }
 
 .map-popup .leaflet-popup-content {
-  margin: 0;
+  margin: 12px;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
-.map-popup .leaflet-popup-tip-container {
-  display: none; /* Hide the popup tip */
+.map-popup .leaflet-popup-tip {
+  background: #fff;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .map-popup .houseCard {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
+  box-shadow: none;
+  border-radius: 8px; /* Match the popup's border-radius */
   overflow: hidden;
   width: 250px; /* Adjust width as needed */
 }
+
+.map-popup:has(.houseCard) .leaflet-popup-content {
+  margin: 0;
+}
+

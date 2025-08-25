@@ -10,6 +10,7 @@ import '@changey/react-leaflet-markercluster/dist/styles.min.css';
 import './GlobalMap.css';
 import HouseCard from '../HouseCard'; // Import custom styles for markers
 
+
 const FitBounds = ({ points }) => {
   const map = useMap();
 
@@ -68,22 +69,19 @@ const GlobalMap = ({ logements }) => {
         spiderfyOnMaxZoom={true}
       >
         {logementsWithCoords.map(logement => {
-          const price = logement.price || 'N/A'; // Fallback for price
-          const createCustomIcon = () => {
-            return L.divIcon({
-              html: `<div class="custom-marker"><div class="custom-marker-inner">${price}€</div></div>`,
-              className: '', // Important to override default leaflet styles
-              iconSize: [40, 40],
-              iconAnchor: [20, 40], // Point of the icon which will correspond to marker's location
-              popupAnchor: [0, -40] // Point from which the popup should open relative to the iconAnchor
-            });
-          };
+                              const priceMarker = L.divIcon({
+            className: 'price-marker',
+            html: `<span>${logement.price}€</span>`,
+            iconSize: null, // Permet au CSS de définir la taille
+            popupAnchor: [0, -20], // Positionne la popup au-dessus de l'ancre
+            iconAnchor: [0, 0], // Aligne l'ancre avec la transformation CSS
+          });
 
           return (
           <Marker 
             key={logement.id} 
             position={logement.position} 
-            icon={createCustomIcon()}
+            icon={priceMarker}
           >
             <Popup className="map-popup">
               <div onClick={() => navigate(`/house/${logement.id}`)} style={{ cursor: 'pointer' }}>

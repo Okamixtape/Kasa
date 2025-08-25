@@ -7,7 +7,7 @@ const Location = ({ logement }) => {
     <div className="location-section">
       <h3>Localisation</h3>
       <p>{logement.location}</p>
-      <Map coordinates={logement.coordinates} locationName={logement.title} />
+      <Map coordinates={logement.coordinates} locationName={logement.title} price={logement.price} />
     </div>
   );
 };

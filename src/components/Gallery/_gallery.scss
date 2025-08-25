@@ -1,11 +1,11 @@
 @use '../../style/base/var' as *;
 
 .gallery {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
     padding: 56px 50px;
     margin: 43px auto;
-    flex-wrap: wrap;
-    justify-content: space-around;
     background-color: $c-light-grey;
     border-radius: $radius-lg;
 

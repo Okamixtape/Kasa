@@ -29,6 +29,19 @@
         width: 64px;
         height: 64px;
         border-radius: 50%;
+        object-fit: cover;
+        background-color: $c-light-grey;
+    }
+
+    &__picture-placeholder {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background-color: $c-light-grey;
+        background-image: url('../../assets/profile.svg');
+        background-size: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     &__rating {

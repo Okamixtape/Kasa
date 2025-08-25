@@ -66,6 +66,17 @@ const Header = () => {
                                     <NavLink className="header__host-button" to="/become-host">Devenez hôte</NavLink>
                                 </li>
                             )}
+                            {!user && (
+                                <>
+                                    <li className="header__navbarListItem header__navbarListItem--divider-mobile"></li>
+                                    <li className="header__navbarListItem header__navbarListItem--mobile-only">
+                                        <NavLink className="header__auth-button header__auth-button--login" to="/login">Connexion</NavLink>
+                                    </li>
+                                    <li className="header__navbarListItem header__navbarListItem--mobile-only">
+                                        <NavLink className="header__auth-button header__auth-button--signup" to="/signup">Inscription</NavLink>
+                                    </li>
+                                </>
+                            )}
                         </ul>
                     </nav>
                 </div>

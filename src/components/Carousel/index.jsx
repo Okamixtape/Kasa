@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import whiteLogo from '../../assets/whiteLogo.png';
 import './_carousel.scss';
 
 const Carousel = ({ pictures, title }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [imageErrors, setImageErrors] = useState({});
 
     const nextPicture = useCallback(() => {
         setCurrentIndex((prevIndex) =>
@@ -32,8 +34,18 @@ const Carousel = ({ pictures, title }) => {
         };
     }, [nextPicture, previousPicture, pictures.length]);
 
+    const handleImageError = (index) => {
+        setImageErrors(prev => ({ ...prev, [index]: true }));
+    };
+
     if (!pictures || pictures.length === 0) {
-        return null; 
+        return (
+            <div className="carousel carousel--no-pictures">
+                <div className="carousel__placeholder">
+                    <img src={whiteLogo} alt="Kasa Logo" className="carousel__placeholder-logo" />
+                </div>
+            </div>
+        );
     }
 
     const showControls = pictures.length > 1;
@@ -47,11 +59,18 @@ const Carousel = ({ pictures, title }) => {
                         key={index}
                         aria-hidden={index !== currentIndex}
                     >
-                        <img
-                            className="carousel__picture"
-                            src={picture}
-                            alt={`${title} - view ${index + 1}`}
-                        />
+                        {imageErrors[index] ? (
+                            <div className="carousel__placeholder">
+                                <img src={whiteLogo} alt="Kasa Logo" className="carousel__placeholder-logo" />
+                            </div>
+                        ) : (
+                            <img
+                                className="carousel__picture"
+                                src={picture}
+                                alt={`${title} - view ${index + 1}`}
+                                onError={() => handleImageError(index)}
+                            />
+                        )}
                     </div>
                 ))}
             </div>

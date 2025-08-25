@@ -1,0 +1,29 @@
+.edit-listing-page {
+    padding: 2rem;
+
+    h1 {
+        margin-bottom: 2rem;
+    }
+
+    .edit-listing-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                margin-bottom: 0.5rem;
+            }
+
+            input,
+            textarea {
+                padding: 0.5rem;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+        }
+    }
+}

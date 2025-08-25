@@ -39,4 +39,40 @@
             }
         }
     }
+
+    .listings-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .listing-item {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .listing-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+    }
+
+    .bookings-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .booking-item {
+        background-color: #f9f9f9;
+        padding: 1rem;
+        border-radius: 8px;
+        border-left: 4px solid #FF6060;
+
+        p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    }
 }

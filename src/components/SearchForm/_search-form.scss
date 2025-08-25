@@ -1,0 +1,114 @@
+@use '../../style/base/var' as *;
+
+.search-form-container {
+    background-color: $c-white;
+    padding: 20px;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-main;
+    margin: -60px auto 0;
+    position: relative;
+    z-index: 10;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .search-bar {
+        position: relative;
+
+        &__icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: $c-grey;
+        }
+
+        &__input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 1px solid #ddd;
+            border-radius: $radius-md;
+            font-size: 1rem;
+        }
+
+        &__clear-button {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: $c-grey;
+        }
+    }
+
+    .filters {
+        display: contents; // Allow filter groups to be direct grid items
+    }
+
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        label {
+            font-weight: 500;
+        }
+    }
+
+    .filter-slider {
+        width: 100%;
+    }
+
+    .filter-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .filter-tag {
+        padding: 8px 15px;
+        border: 1px solid #ddd;
+        border-radius: $radius-lg;
+        background-color: $c-white;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s;
+
+        &.-active {
+            background-color: $c-primary;
+            color: $c-white;
+            border-color: $c-primary;
+        }
+    }
+}
+
+.search-form__main-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media screen and (min-width: 992px) {
+    .search-form-container {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 30px;
+        align-items: start;
+        max-width: 1240px;
+    }
+
+    .search-form__main-filters {
+        gap: 30px;
+    }
+
+    .filter-group {
+        // This targets both filter groups within the new structure
+    }
+
+    .filter-group:last-of-type { // Specifically the tags filter
+        margin-top: 0; // Resets mobile margin
+    }
+}

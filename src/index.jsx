@@ -24,6 +24,7 @@ const FavoritesPage = lazy(() => import('./pages/FavoritesPage'));
 const BookingConfirmationPage = lazy(() => import('./pages/BookingConfirmationPage'));
 const HostDashboardPage = lazy(() => import('./pages/HostDashboardPage'));
 const HostAnalyticsPage = lazy(() => import('./pages/HostAnalyticsPage'));
+const EditListingPage = lazy(() => import('./pages/EditListingPage'));
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -50,6 +51,7 @@ root.render(
                             <Route path="booking-confirmation/:bookingId" element={<ProtectedRoute><BookingConfirmationPage /></ProtectedRoute>} />
                             <Route path="host/dashboard" element={<ProtectedRoute permission="view_host_dashboard"><HostDashboardPage /></ProtectedRoute>} />
                             <Route path="host/analytics" element={<ProtectedRoute permission="view_analytics"><HostAnalyticsPage /></ProtectedRoute>} />
+                            <Route path="host/listings/:id/edit" element={<ProtectedRoute permission="edit_listing"><EditListingPage /></ProtectedRoute>} />
                             <Route path="*" element={<ErrorPage />} />
                         </Route>
                     </Routes>

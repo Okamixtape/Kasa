@@ -9,7 +9,6 @@
 @use '../../components/Error/error';
 @use '../../components/FavoriteButton/favoriteButton';
 @use '../../components/FeaturedBlogCard/featured-blog-card';
-@use '../../components/FilterBar/filter-bar';
 @use '../../components/Footer/footer';
 @use '../../components/Gallery/gallery';
 @use '../../components/GalleryCard/gallery-card';
@@ -27,3 +26,4 @@
 @use '../../components/SearchBar/search-bar';
 @use '../../components/TeamMemberCard/team-member-card';
 @use 'global-map';
+@use 'price-marker';

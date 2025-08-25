@@ -17,6 +17,8 @@
     background-color: $c-light-grey;
     border-radius: $radius-md;
     text-align: center;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .about-page__team {
@@ -43,10 +45,25 @@
     margin-top: 40px;
 }
 
+@media screen and (max-width: $tablet-down) {
+    .team-grid {
+        gap: 20px;
+    }
+
+    .about-page__team {
+        margin: 60px auto 40px;
+    }
+}
+
+@media screen and (max-width: $mobile-down) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .collapse__wrapper.-aboutPage {
     max-width: 800px; // Limit width to match other sections
     margin: 40px auto;
     display: flex;
     flex-direction: column;
-    gap: 30px;
 }

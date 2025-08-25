@@ -4,9 +4,8 @@ import homeBanner from '../../assets/homeBanner.png';
 import homeBannerMobile from '../../assets/homeBanner-mobile.png';
 import aboutBanner from '../../assets/aboutBanner.png';
 import aboutBannerMobile from '../../assets/aboutBanner-mobile.png';
-import SearchBar from '../SearchBar'; // Assuming we'll reuse and adapt SearchBar
 
-const Banner = ({ banner, title, onSearch }) => {
+const Banner = ({ banner, title }) => {
     const bannerImage = banner === 'homeBanner' ? homeBanner : aboutBanner;
     const bannerImageMobile = banner === 'homeBanner' ? homeBannerMobile : aboutBannerMobile;
 
@@ -24,7 +23,6 @@ const Banner = ({ banner, title, onSearch }) => {
                 <div className="hero-content">
                     <h1>Chez vous, partout et ailleurs</h1>
                     <p>Découvrez plus de 500 logements de qualité vérifiés</p>
-                    <SearchBar onSearch={onSearch} />
                     <div className="trust-indicators">
                         ⭐ 4.8/5 • 🏠 500+ logements • ✅ 100% vérifiés
                     </div>

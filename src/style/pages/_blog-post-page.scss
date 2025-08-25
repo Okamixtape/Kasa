@@ -1,3 +1,5 @@
+@use '../base/var' as *;
+
 .blog-post-page {
     .post-banner {
         width: 100%;
@@ -56,6 +58,39 @@
             font-weight: bold;
             text-align: center;
             margin-top: 3rem;
+        }
+    }
+}
+
+@media screen and (max-width: $tablet-down) {
+    .blog-post-page {
+        .post-banner {
+            height: 300px;
+        }
+
+        .blog-post {
+            padding: 1.5rem;
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .post-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-down) {
+    .blog-post-page {
+        .post-meta {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .blog-post {
+            padding: 1rem;
         }
     }
 }
