@@ -1,0 +1,19 @@
+@use '../../style/base/var' as *;
+
+.equipment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+
+    &__item {
+        background-color: $c-light-grey;
+        padding: 10px 15px;
+        border-radius: $radius-sm;
+        font-size: $fs-small;
+        color: $c-text-main;
+        text-align: center;
+    }
+}

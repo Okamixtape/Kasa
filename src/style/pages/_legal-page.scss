@@ -1,0 +1,28 @@
+@use '../base/var' as *;
+
+.legal-page {
+    h1 {
+        margin-bottom: $spacing-l;
+    }
+
+    h2 {
+        margin-top: $spacing-l;
+        margin-bottom: $spacing-s;
+        font-size: $fs-h4;
+        color: $c-text-main;
+    }
+
+    p {
+        line-height: 1.7;
+        margin-bottom: $spacing-m;
+
+        strong {
+            color: $c-text-main;
+        }
+    }
+
+    // Add some space at the end of the page
+    & > *:last-child {
+        margin-bottom: $spacing-xl;
+    }
+}
