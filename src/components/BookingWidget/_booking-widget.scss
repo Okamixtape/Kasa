@@ -2,156 +2,193 @@
 @use '../../style/base/var' as *;
 
 .booking-widget {
-    background-color: $c-light-grey;
-    padding: 1.5rem 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: $c-white;
+    padding: $spacing-l;
+    border-radius: $radius-lg;
+    border: 1px solid $c-light-grey;
+    box-shadow: 0 6px 20px rgba($c-black, 0.08);
 
     h3 {
         text-align: center;
-        color: $c-orange-red-light;
-        margin-top: 0;
-        margin-bottom: 1.5rem;
-    
-    .booking-widget__login-prompt {
-        text-align: center;
+        font-size: $fs-h3;
         color: $c-text-main;
-        padding: 2rem 1rem;
-        font-size: 1.1rem;
-        line-height: 1.5;
+        margin-top: 0;
+        margin-bottom: $spacing-l;
+    }
+
+    &__login-prompt {
+        text-align: center;
+        color: $c-text-secondary;
+        padding: $spacing-xl $spacing-m;
+        font-size: $fs-base;
+        line-height: 1.6;
 
         a {
-            color: #ff6060;
-            text-decoration: underline;
-            font-weight: 500;
+            color: $c-primary;
+            text-decoration: none;
+            font-weight: 600;
 
             &:hover {
-                color: color.adjust($c-orange-red-light, $lightness: -5%);
+                text-decoration: underline;
             }
         }
     }
-}
+
+    .error-message, .success-message {
+        text-align: center;
+        margin-top: $spacing-m;
+        font-size: $fs-small;
+        font-weight: 500;
+    }
 
     .error-message {
-        color: #e74c3c;
-        text-align: center;
-        margin-top: 1rem;
+        color: $c-orange-red;
     }
 
     .success-message {
         color: $c-accent-success;
-        text-align: center;
-        margin-top: 1rem;
     }
 
-    .booking-widget__summary {
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid #e0e0e0;
+    &__summary {
+        margin-top: $spacing-l;
         
-        p {
-            margin: 0.5rem 0;
-            color: #484848;
+        &-item {
             display: flex;
             justify-content: space-between;
+            margin-bottom: $spacing-m;
+            font-size: $fs-base;
+            color: $c-text-secondary;
+
+            span:last-child {
+                color: $c-text-main;
+                font-weight: 500;
+            }
         }
 
-        .booking-widget__total-price {
-            font-weight: bold;
-            font-size: 1.2rem;
+        &-total {
+            padding-top: $spacing-m;
+            border-top: 1px solid $c-light-grey;
+            font-weight: 600;
+            font-size: $fs-h4;
             color: $c-text-main;
         }
     }
 
     button[type="submit"] {
-        background-color: $c-orange-red-light;
-        color: white;
+        background: linear-gradient(90deg, $c-orange-red-light, $c-orange-red);
+        color: $c-white;
         border: none;
-        padding: 0.8rem 1.5rem;
-        border-radius: 5px;
-        font-size: 1.1rem;
-        font-weight: 500;
+        padding: $spacing-m;
+        border-radius: $radius-md;
+        font-size: $fs-h4;
+        font-weight: 600;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
         width: 100%;
-        margin-top: 1rem;
+        margin-top: $spacing-l;
 
         &:hover:not(:disabled) {
-            background-color: color.adjust($c-orange-red-light, $lightness: -5%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba($c-primary, 0.3);
         }
 
         &:disabled {
-            background-color: #ccc;
+            background: $c-medium-grey;
+            color: $c-grey;
             cursor: not-allowed;
         }
     }
 
-    // React-datepicker custom styles
+    // --- React-datepicker --- //
     .react-datepicker-wrapper {
         width: 100%;
     }
 
     .react-datepicker {
         border: none;
-        border-radius: 10px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        font-family: 'Montserrat', sans-serif;
+        font-family: inherit;
+        background-color: transparent;
+        width: 100%;
+    }
+
+    .react-datepicker__month-container {
+        width: 100%;
+        margin-bottom: $spacing-l;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
     }
 
     .react-datepicker__header {
-        background-color: #ff6060;
+        background-color: transparent;
         border-bottom: none;
-        color: white;
-        border-radius: 10px 10px 0 0;
+        padding: 0;
+        margin-bottom: $spacing-m;
     }
 
-    .react-datepicker__current-month,
-    .react-datepicker-time__header,
-    .react-datepicker-year-header {
-        color: white;
-        font-weight: 500;
+    .react-datepicker__current-month {
+        font-size: $fs-h4;
+        font-weight: 600;
+        color: $c-text-main;
+        padding-bottom: $spacing-m;
     }
 
     .react-datepicker__day-name {
-        color: white;
+        color: $c-text-secondary;
         font-weight: 500;
+        width: 12.5%;
+        margin: 0.5%;
     }
 
-    .react-datepicker__navigation-icon::before {
-        border-color: white;
+    .react-datepicker__week {
+        display: flex;
+        justify-content: center;
     }
 
     .react-datepicker__day {
-        transition: background-color 0.2s ease;
+        width: 12.5%;
+        height: 36px;
+        line-height: 36px;
+        margin: 0.5%;
+        border-radius: 50%;
+        transition: all 0.2s ease;
 
         &:hover {
-            background-color: #f0f0f0;
-            border-radius: 50%;
+            background-color: $c-light-grey;
         }
     }
 
     .react-datepicker__day--selected,
     .react-datepicker__day--in-selecting-range,
     .react-datepicker__day--in-range {
-        background-color: #ff6060;
-        color: white;
-        border-radius: 50%;
+        background-color: $c-primary;
+        color: $c-white;
+        border-radius: 0;
     }
 
     .react-datepicker__day--range-start {
         border-radius: 50% 0 0 50%;
     }
-
     .react-datepicker__day--range-end {
         border-radius: 0 50% 50% 0;
     }
 
     .react-datepicker__day--disabled {
-        color: #ccc;
+        color: $c-grey;
         text-decoration: line-through;
+        cursor: not-allowed;
 
         &:hover {
             background-color: transparent;
         }
+    }
+
+    .react-datepicker__navigation {
+        top: 12px;
+    }
+
+    .react-datepicker__navigation-icon::before {
+        border-color: $c-text-main;
+        border-width: 2px 2px 0 0;
     }
 }

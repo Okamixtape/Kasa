@@ -16,6 +16,7 @@ $c-text-secondary: #666;
 $c-accent-success: #4CAF50;
 $c-grey: #808080;
 $c-medium-grey: #f7f7f7;
+$c-light-grey: #f7f7f7;
 
 // -- Fonts
 
@@ -24,12 +25,23 @@ $c-medium-grey: #f7f7f7;
 // Font Sizes
 $fs-base: 1rem; // 16px
 $fs-small: 0.875rem; // 14px
+$fs-normal: 1rem; // 16px
+$fs-large: 1.25rem; // 20px
 
 $fs-h1: 3rem;    // 48px
 $fs-h2: 2.25rem; // 36px
 $fs-h3: 1.5rem;  // 24px
 $fs-h4: 1.125rem; // 18px
 $fs-h5: 1rem; // 16px
+
+// Spacing
+
+$spacing-xs: 4px;
+$spacing-s: 8px;
+$spacing-m: 16px;
+$spacing-l: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
 
 // Border-radius
 

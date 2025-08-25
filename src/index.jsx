@@ -25,6 +25,8 @@ const BookingConfirmationPage = lazy(() => import('./pages/BookingConfirmationPa
 const HostDashboardPage = lazy(() => import('./pages/HostDashboardPage'));
 const HostAnalyticsPage = lazy(() => import('./pages/HostAnalyticsPage'));
 const EditListingPage = lazy(() => import('./pages/EditListingPage'));
+const LegalPage = lazy(() => import('./pages/Legal/LegalPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/Legal/PrivacyPolicyPage'));
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -52,6 +54,8 @@ root.render(
                             <Route path="host/dashboard" element={<ProtectedRoute permission="view_host_dashboard"><HostDashboardPage /></ProtectedRoute>} />
                             <Route path="host/analytics" element={<ProtectedRoute permission="view_analytics"><HostAnalyticsPage /></ProtectedRoute>} />
                             <Route path="host/listings/:id/edit" element={<ProtectedRoute permission="edit_listing"><EditListingPage /></ProtectedRoute>} />
+                            <Route path="mentions-legales" element={<LegalPage />} />
+                            <Route path="politique-de-confidentialite" element={<PrivacyPolicyPage />} />
                             <Route path="*" element={<ErrorPage />} />
                         </Route>
                     </Routes>

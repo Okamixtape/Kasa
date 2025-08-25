@@ -54,13 +54,15 @@ header.header {
         color: $c-primary;
         text-decoration: none;
         padding: 8px 16px;
-        border-radius: 20px;
-        border: 1px solid #e0e0e0;
+        border-radius: $radius-md;
+        border: 1px solid $c-light-grey;
+        background-color: transparent;
         transition: all 0.3s ease;
 
         &:hover {
-            background-color: #f6f6f6;
-            border-color: #ccc;
+            background-color: $c-light-grey;
+            border-color: #ddd;
+            color: darken($c-primary, 5%);
         }
     }
 
@@ -70,8 +72,35 @@ header.header {
 
     .header__navbarListAnchor {
         font-size: $fs-h4;
+        color: $c-text-secondary;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 8px;
+        transition: color 0.3s ease;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: $c-primary;
+            transition: width 0.3s ease;
+        }
+
+        &:hover,
         &.active {
-            text-decoration: underline;
+            color: $c-primary;
+        }
+
+        &.active::after {
+            width: 100%;
+        }
+
+        &:hover:not(.active)::after {
+            width: 100%;
         }
     }
 

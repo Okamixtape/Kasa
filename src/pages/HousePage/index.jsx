@@ -9,6 +9,7 @@ import Carousel from '../../components/Carousel';
 import HouseSidebar from '../../components/HouseSidebar';
 import ErrorPage from '../ErrorPage';
 import Location from '../../components/Location';
+import EquipmentList from '../../components/EquipmentList';
 import './_house-page.scss';
 
 const HousePage = () => {
@@ -93,9 +94,6 @@ const HousePage = () => {
                             titleAs="h1"
                             location={house.location}
                             tags={house.tags}
-                            host={house.host}
-                            reviews={house.reviews}
-                            price={house.price}
                         />
                         <div className="collapse__wrapper -housePage">
                             <Collapse
@@ -106,7 +104,7 @@ const HousePage = () => {
                             <Collapse
                                 key="Équipements"
                                 title="Équipements"
-                                text={house.equipments.join(', ')}
+                                text={<EquipmentList equipments={house.equipments} />}
                             />
                         </div>
                         <Location logement={house} />

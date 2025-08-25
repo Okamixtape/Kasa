@@ -1,69 +1,66 @@
 @use '../base/var' as *;
 
+.about-page__content {
+    padding: $spacing-xl 0;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
 .about-page__intro {
-    max-width: 800px; // Limit width for better readability
-    margin: 40px auto; // Center the block and add vertical spacing
-    text-align: center; // Center the text inside
+    text-align: center;
+    margin-bottom: $spacing-xxl;
 
     h2 {
-        margin-bottom: 20px; // Space between title and paragraph
-    }
-}
-
-.about-page__quality {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 40px;
-    background-color: $c-light-grey;
-    border-radius: $radius-md;
-    text-align: center;
-    border: 1px solid #E0E0E0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-.about-page__team {
-    max-width: 800px;
-    margin: 100px auto 60px; // Increase top margin to add space
-    text-align: center;
-
-    h2 {
-        margin-bottom: 20px;
+        font-size: $fs-h2;
+        font-weight: 500;
+        margin-bottom: $spacing-l;
+        color: $c-text-main;
     }
 
     p {
-        text-align: center; // Center align for a card layout
-        max-width: 600px; // Constrain line length for readability
-        margin-left: auto;
-        margin-right: auto;
+        font-size: $fs-large;
+        color: $c-text-secondary;
+        line-height: 1.7;
+    }
+}
+
+.about-page__team {
+    text-align: center;
+    margin: $spacing-xxl 0;
+
+    h2 {
+        font-size: $fs-h2;
+        font-weight: 500;
+        margin-bottom: $spacing-xl;
+        color: $c-text-main;
     }
 }
 
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-top: 40px;
+    gap: $spacing-xl;
 }
 
-@media screen and (max-width: $tablet-down) {
-    .team-grid {
-        gap: 20px;
+.about-page__quality {
+    background-color: $c-light-grey;
+    padding: $spacing-xl $spacing-l;
+    border-radius: $radius-md;
+    text-align: center;
+    margin: $spacing-xxl 0;
+
+    h2 {
+        font-size: $fs-h3;
+        font-weight: 500;
+        margin-bottom: $spacing-m;
+        color: $c-text-main;
     }
 
-    .about-page__team {
-        margin: 60px auto 40px;
+    p {
+        font-size: $fs-large;
+        color: $c-text-secondary;
+        line-height: 1.7;
+        max-width: 800px;
+        margin: 0 auto;
     }
-}
-
-@media screen and (max-width: $mobile-down) {
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.collapse__wrapper.-aboutPage {
-    max-width: 800px; // Limit width to match other sections
-    margin: 40px auto;
-    display: flex;
-    flex-direction: column;
 }

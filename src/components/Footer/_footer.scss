@@ -12,6 +12,15 @@
     row-gap: 30px;
 
     &__nav {
+        display: flex;
+        gap: 20px;
+
+        @media (max-width: $mobile-down) {
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
         a {
             color: $c-white;
             text-decoration: none;

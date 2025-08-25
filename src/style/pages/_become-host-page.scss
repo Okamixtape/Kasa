@@ -1,10 +1,11 @@
 @use 'sass:color';
+@use '../base/var' as *;
 
 .become-host-page {
     .hero-section {
         background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assets/aboutBanner.png') no-repeat center center;
         background-size: cover;
-        color: white;
+        color: $c-white;
         text-align: center;
         padding: 5rem 2rem;
         border-radius: 25px;
@@ -21,8 +22,8 @@
         }
 
         .cta-button {
-            background-color: #ff6060;
-            color: white;
+            background-color: $c-primary;
+            color: $c-white;
             border: none;
             padding: 1rem 2rem;
             border-radius: 10px;
@@ -32,7 +33,7 @@
             transition: background-color 0.3s ease;
 
             &:hover {
-                background-color: color.adjust(#ff6060, $lightness: -10%);
+                background-color: color.adjust($c-primary, $lightness: -10%);
             }
         }
     }
@@ -44,7 +45,7 @@
         h2 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
-            color: #ff6060;
+            color: $c-primary;
         }
 
         .features {
@@ -55,7 +56,7 @@
             .feature-item {
                 flex-basis: 30%;
                 padding: 2rem;
-                background-color: #f9f9f9;
+                background-color: $c-light-grey;
                 border-radius: 15px;
                 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
                 text-align: center;
@@ -68,7 +69,7 @@
 
                 .feature-icon {
                     font-size: 3rem;
-                    color: #ff6060;
+                    color: $c-primary;
                     margin-bottom: 1.5rem;
                 }
                 
@@ -87,12 +88,12 @@
         .testimonials-section {
             margin-top: 4rem;
             padding: 2rem 0;
-            border-top: 1px solid #eee;
+            border-top: 1px solid $c-light-grey;
 
             h2 {
                 font-size: 2.5rem;
                 margin-bottom: 2rem;
-                color: #ff6060;
+                color: $c-primary;
                 text-align: center;
             }
 
@@ -103,7 +104,7 @@
 
                 .testimonial-item {
                     flex-basis: 45%;
-                    background-color: #f9f9f9;
+                    background-color: $c-light-grey;
                     padding: 2rem;
                     border-radius: 15px;
                     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -111,13 +112,13 @@
                     .testimonial-text {
                         font-style: italic;
                         margin-bottom: 1rem;
-                        color: #333;
+                        color: $c-text-main;
                     }
 
                     .testimonial-author {
                         font-weight: bold;
                         text-align: right;
-                        color: #ff6060;
+                        color: $c-primary;
                     }
                 }
             }

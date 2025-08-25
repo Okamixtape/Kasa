@@ -129,10 +129,15 @@ const BookingWidget = ({ houseId, price }) => {
                 </div>
                                 {startDate && endDate && (
                     <div className="booking-widget__summary">
-                        <p>Nombre de nuits : {Math.ceil(Math.abs(endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24))}</p>
-                        <p>Prix par nuit : {price}€</p>
-                        <p className="booking-widget__total-price">Prix total : {totalPrice}€</p>
+                    <div className="booking-widget__summary-item">
+                        <span>{price}€ x {Math.ceil(Math.abs(endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24))} nuits</span>
+                        <span>{totalPrice}€</span>
                     </div>
+                    <div className="booking-widget__summary-item booking-widget__summary-total">
+                        <span>Prix total</span>
+                        <span>{totalPrice}€</span>
+                    </div>
+                </div>
                 )}
                 <button type="submit" disabled={!startDate || !endDate}>Réserver</button>
                 {error && <p className="error-message">{error}</p>}

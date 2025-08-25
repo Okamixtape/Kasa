@@ -2,7 +2,7 @@ import React from 'react';
 import './_house-card.scss';
 import whiteLogo from '../../assets/whiteLogo.png';
 
-const HouseCard = ({ cover, tags = [], reviews = [], host = { name: 'Hôte inconnu', picture: '' }, title, location, id, onBooking, titleAs: TitleTag = 'h3', price }) => {
+const HouseCard = ({ cover, tags = [], reviews = [], title, location, id, onBooking, titleAs: TitleTag = 'h3', price }) => {
 
     return (
         <div key={id} className="houseCard">
