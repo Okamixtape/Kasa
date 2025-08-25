@@ -3,7 +3,7 @@ import './_review-card.scss';
 import Rating from '../Rating';
 
 const ReviewCard = ({ review }) => {
-    const { author, rating, comment, date } = review;
+    const { author, rating, comment, date, detailedRating } = review;
 
     const formattedDate = new Date(date).toLocaleDateString('fr-FR', {
         year: 'numeric',
@@ -21,6 +21,34 @@ const ReviewCard = ({ review }) => {
                 <Rating rating={rating} />
             </div>
             <p className="reviewCard__comment">{comment}</p>
+            {detailedRating && (
+                <div className="reviewCard__detailed-rating">
+                    <div className="detailed-rating__item">
+                        <span>Propreté</span>
+                        <Rating rating={detailedRating.cleanliness} />
+                    </div>
+                    <div className="detailed-rating__item">
+                        <span>Communication</span>
+                        <Rating rating={detailedRating.communication} />
+                    </div>
+                    <div className="detailed-rating__item">
+                        <span>Arrivée</span>
+                        <Rating rating={detailedRating.checkin} />
+                    </div>
+                    <div className="detailed-rating__item">
+                        <span>Précision</span>
+                        <Rating rating={detailedRating.accuracy} />
+                    </div>
+                    <div className="detailed-rating__item">
+                        <span>Emplacement</span>
+                        <Rating rating={detailedRating.location} />
+                    </div>
+                    <div className="detailed-rating__item">
+                        <span>Rapport qualité-prix</span>
+                        <Rating rating={detailedRating.value} />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

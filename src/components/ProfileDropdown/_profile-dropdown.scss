@@ -38,6 +38,31 @@
         }
     }
 
+    &__user-info {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .role-badge {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+
+        &--tenant {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        &--host {
+            background-color: #FF6060;
+            color: white;
+        }
+    }
+
     &__menu {
         position: absolute;
         top: 110%;

@@ -2,7 +2,7 @@ import React from 'react';
 import './_gallery.scss';
 import GalleryCard from '../GalleryCard';
 
-const Gallery = ({ filteredData }) => {
+const Gallery = ({ filteredData, favorites, onToggleFavorite }) => {
 
     return (
         <div className="gallery">
@@ -13,6 +13,9 @@ const Gallery = ({ filteredData }) => {
                         id={house.id}
                         cover={house.cover}
                         title={house.title}
+                        price={house.price}
+                                                isFavorite={favorites.has(house.id)}
+                        onToggleFavorite={onToggleFavorite}
                     />
                 ))
             ) : (

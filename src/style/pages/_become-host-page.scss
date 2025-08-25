@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 .become-host-page {
     .hero-section {
         background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assets/aboutBanner.png') no-repeat center center;
@@ -30,7 +32,7 @@
             transition: background-color 0.3s ease;
 
             &:hover {
-                background-color: darken(#ff6060, 10%);
+                background-color: color.adjust(#ff6060, $lightness: -10%);
             }
         }
     }

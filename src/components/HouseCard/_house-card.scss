@@ -1,13 +1,28 @@
-@import '../../style/base/_var.scss';
+@use '../../style/base/var' as *;
 
 .houseCard {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     color: $c-primary;
+    background-color: $c-white;
+    padding: 1rem;
 
     .houseCard__title {
         font-size: 1.5rem;
         margin-bottom: 10px;
+    }
+
+    .houseCard__location {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .houseCard__price {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color);
     }
 
     .houseCard__location,
@@ -17,19 +32,18 @@
 
     .houseCard__tags {
         display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
         margin-top: 20px;
     }
 
     .houseCard__tag {
-        width: 160px;
-        height: 25px;
+        padding: 5px 15px;
         font-size: $fs-small;
-        line-height: 25px;
         text-align: center;
         color: $c-white;
         background-color: $c-primary;
         border-radius: 10px;
-        margin-right: 10px;
     }
 
 

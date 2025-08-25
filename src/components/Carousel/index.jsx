@@ -1,98 +1,84 @@
-import React, { Component } from "react";
+import React, { useState, useEffect, useCallback } from 'react';
 import './_carousel.scss';
 
-export class Carousel extends Component {
-    constructor() {
-        super();
+const Carousel = ({ pictures, title }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-        // Initialisation de l'index à 0
-        this.state = { index: 0 };
-    }
-
-    // Gestion boucle d'array du dernier élément au premier élément
-    nextPicture() {
-        // Si on atteint dernier élément d'array index = 0 sinon index +1
-        this.state.index === this.props.pictures.length - 1
-        ? this.setState({ index: 0 })
-        : this.setState({ index: this.state.index + 1 });
-    }
-
-    // Gestion boucle d'array du premier élément au dernier élément
-    previousPicture() {
-        this.state.index === 0 // Si on atteint premier élément d'array index = dernier élément d'array, sinon index -1
-        ? this.setState({ index: this.props.pictures.length - 1 })
-        : this.setState({ index: this.state.index - 1 });
-    }
-
-    // Gestion d'affichage si une image disponible
-    renderPictureWithoutIcon() {
-        return (
-            <div className="carousel">
-                <img
-                className="carousel__picture"
-                src={this.props.pictures}
-                alt=""
-                key={this.props.pictures}
-                />
-                <div className="carousel__pagination">
-                    {this.state.index +1 } / {this.props.pictures.length}
-                </div>
-            </div>
+    const nextPicture = useCallback(() => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === pictures.length - 1 ? 0 : prevIndex + 1
         );
-    }
+    }, [pictures.length]);
 
-    // Gestion d'affichage si plusieurs images disponibles
-    renderPictureWithIcon() {
-        return (
-            <div className="carousel">
-                <img
-                className="carousel__picture"
-                src={this.props.pictures[this.state.index]}
-                alt=""
-                />
-
-                <div className="carousel__pagination">
-                    {this.state.index +1 } / {this.props.pictures.length}
-                </div>
-
-                <svg
-                onClick={() => this.previousPicture()}
-                className="carousel__leftIcon"
-                width="48"
-                height="80"
-                viewBox="0 0 48 80"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                >
-                <path
-                    d="M47.04 7.78312L39.92 0.703125L0.359985 40.3031L39.96 79.9031L47.04 72.8231L14.52 40.3031L47.04 7.78312Z"
-                    fill="white"
-                />
-                </svg>
-                <svg
-                onClick={() => this.nextPicture()}
-                className="carousel__rightIcon"
-                width="48"
-                height="80"
-                viewBox="0 0 48 80"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                >
-                <path
-                    d="M47.04 7.78312L39.92 0.703125L0.359985 40.3031L39.96 79.9031L47.04 72.8231L14.52 40.3031L47.04 7.78312Z"
-                    fill="white"
-                />
-                </svg>
-            </div>
+    const previousPicture = useCallback(() => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? pictures.length - 1 : prevIndex - 1
         );
+    }, [pictures.length]);
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (pictures.length <= 1) return;
+            if (e.key === 'ArrowRight') {
+                nextPicture();
+            } else if (e.key === 'ArrowLeft') {
+                previousPicture();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [nextPicture, previousPicture, pictures.length]);
+
+    if (!pictures || pictures.length === 0) {
+        return null; 
     }
 
-    render() {
-        // Si plusieurs images disponible on affiche les flêches de navigation sinon on affiche juste l'image disponible
-        return this.props.pictures.length > 1
-            ? this.renderPictureWithIcon()
-            : this.renderPictureWithoutIcon();
-    }
-}
+    const showControls = pictures.length > 1;
+
+    return (
+        <div className="carousel" aria-roledescription="carousel" aria-label={`Image gallery for ${title}`}>
+            <div className="carousel__inner">
+                {pictures.map((picture, index) => (
+                    <div
+                        className={`carousel__item ${index === currentIndex ? 'active' : ''}`}
+                        key={index}
+                        aria-hidden={index !== currentIndex}
+                    >
+                        <img
+                            className="carousel__picture"
+                            src={picture}
+                            alt={`${title} - view ${index + 1}`}
+                        />
+                    </div>
+                ))}
+            </div>
+
+            {showControls && (
+                <>
+                    <button
+                        onClick={previousPicture}
+                        className="carousel__button carousel__button--prev"
+                        aria-label="Previous image"
+                    >
+
+                    </button>
+                    <button
+                        onClick={nextPicture}
+                        className="carousel__button carousel__button--next"
+                        aria-label="Next image"
+                    >
+
+                    </button>
+                    <div className="carousel__pagination" aria-hidden="true">
+                        {currentIndex + 1} / {pictures.length}
+                    </div>
+                </>
+            )}
+        </div>
+    );
+};
 
 export default Carousel;

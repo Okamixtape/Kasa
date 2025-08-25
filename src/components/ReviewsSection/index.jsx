@@ -1,8 +1,9 @@
 import React from 'react';
 import './_reviews-section.scss';
 import ReviewCard from '../ReviewCard';
+import ReviewForm from '../ReviewForm';
 
-const ReviewsSection = ({ reviews }) => {
+const ReviewsSection = ({ reviews, logementId, onReviewSubmit, token }) => {
     if (!reviews || reviews.length === 0) {
         return (
             <div className="reviewsSection">
@@ -20,6 +21,7 @@ const ReviewsSection = ({ reviews }) => {
                     <ReviewCard key={index} review={review} />
                 ))}
             </div>
+            <ReviewForm logementId={logementId} onReviewSubmit={onReviewSubmit} token={token} />
         </div>
     );
 };

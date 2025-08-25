@@ -1,5 +1,10 @@
 // Import main scss
 
-@import 'utils/utils';
-@import 'base/index';
-@import 'pages/index';
+@use 'utils/utils';
+@use 'base/index' as *;
+@use 'pages/index' as *;
+@use 'components/index' as *;
+
+// Vendor styles
+@import '~leaflet.markercluster/dist/MarkerCluster.css';
+@import '~leaflet.markercluster/dist/MarkerCluster.Default.css';

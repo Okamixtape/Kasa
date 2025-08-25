@@ -100,12 +100,24 @@ const verifyToken = (req, res, next) => {
     return next();
 };
 
+// --- Middleware to authorize based on role ---
+const authorizeRole = (allowedRoles) => {
+    return (req, res, next) => {
+        const userRole = req.user.role;
+        if (allowedRoles.includes(userRole)) {
+            next();
+        } else {
+            res.status(403).json({ message: 'Forbidden: You do not have the required role.' });
+        }
+    };
+};
+
 // --- Logements API Endpoints ---
 app.get('/api/logements', (req, res) => {
   res.json(logements);
 });
 
-app.post('/api/logements', [verifyToken, upload.array('pictures', 10)], (req, res) => {
+app.post('/api/logements', [verifyToken, authorizeRole(['host']), upload.array('pictures', 10)], (req, res) => {
         const newListingData = req.body;
     const pictures = req.files ? req.files.map(file => `/uploads/${file.filename}`) : [];
     const cover = pictures.length > 0 ? pictures[0] : '';
@@ -149,6 +161,43 @@ app.get('/api/logements/:id', (req, res) => {
   }
 });
 
+// --- Add a review to a logement ---
+app.post('/api/logements/:id/reviews', verifyToken, (req, res) => {
+    const { id: logementId } = req.params;
+    const { author, comment, rating, detailedRating } = req.body;
+    const userId = req.user.id;
+
+    if (!author || !comment || !rating || !detailedRating) {
+        return res.status(400).json({ message: 'All review fields are required.' });
+    }
+
+    const allLogements = require('./logements.json');
+    const logementIndex = allLogements.findIndex(l => l.id === logementId);
+
+    if (logementIndex === -1) {
+        return res.status(404).json({ message: 'Logement not found' });
+    }
+
+    const newReview = {
+        author,
+        comment,
+        rating,
+        detailedRating,
+        date: new Date().toISOString(),
+        userId: userId
+    };
+
+    // Ensure reviews array exists
+    if (!allLogements[logementIndex].reviews) {
+        allLogements[logementIndex].reviews = [];
+    }
+
+    allLogements[logementIndex].reviews.push(newReview);
+    writeLogements(allLogements);
+
+    res.status(201).json(newReview);
+});
+
 // --- Auth API Endpoints ---
 
 // Signup
@@ -173,6 +222,8 @@ app.post('/api/signup', async (req, res) => {
         name,
         email,
         password: hashedPassword,
+        role: 'tenant', // Default role
+        favorites: []
     };
 
     users.push(newUser);
@@ -201,11 +252,23 @@ app.post('/api/login', async (req, res) => {
         return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ id: user.id, name: user.name }, JWT_SECRET, {
+    const payload = {
+        id: user.id,
+        name: user.name,
+        role: user.role || 'tenant' // Fallback for old users
+    };
+
+    const token = jwt.sign(payload, JWT_SECRET, {
         expiresIn: '1h',
     });
 
-    res.json({ token, userName: user.name });
+    res.json({ 
+        token, 
+        user: { 
+            name: user.name, 
+            role: user.role || 'tenant' 
+        } 
+    });
 });
 
 
@@ -243,19 +306,52 @@ app.post('/api/bookings', verifyToken, (req, res) => {
     }
     // --- End Validation ---
 
+    const logement = logements.find(l => l.id === houseId);
+    if (!logement) {
+        return res.status(404).json({ message: 'Logement non trouvé.' });
+    }
+
+    const diffTime = Math.abs(end - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const totalPrice = diffDays * logement.price;
+
     const newBooking = {
         id: `book-${Date.now()}`,
         userId,
         houseId,
         startDate,
         endDate,
+        totalPrice,
         createdAt: new Date().toISOString(),
     };
 
     bookings.push(newBooking);
     writeBookings(bookings);
 
-    res.status(201).json(newBooking);
+    res.status(201).json({ booking: newBooking });
+});
+
+// --- Get a single booking by ID ---
+app.get('/api/bookings/:id', verifyToken, (req, res) => {
+    const { id: bookingId } = req.params;
+    const userId = req.user.id;
+
+    const bookings = readBookings();
+    const booking = bookings.find(b => b.id === bookingId);
+
+    if (!booking) {
+        return res.status(404).json({ message: 'Réservation non trouvée.' });
+    }
+
+    // Optional: Check if the user is authorized to see this booking
+    if (booking.userId !== userId) {
+        return res.status(403).json({ message: 'Accès non autorisé à cette réservation.' });
+    }
+
+    const houseDetails = logements.find(l => l.id === booking.houseId);
+    const enrichedBooking = { ...booking, house: houseDetails };
+
+    res.json(enrichedBooking);
 });
 
 // --- My Bookings API Endpoint ---
@@ -301,6 +397,95 @@ app.get('/api/houses/:houseId/bookings', (req, res) => {
     const bookings = readBookings();
     const houseBookings = bookings.filter(b => b.houseId === houseId);
     res.json(houseBookings);
+});
+
+// --- Favorites API Endpoints ---
+
+// Get user's favorites
+app.get('/api/me/favorites', verifyToken, (req, res) => {
+    const users = readUsers();
+    const user = users.find(u => u.id === req.user.id);
+
+    if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Ensure favorites array exists
+    const favoriteIds = user.favorites || [];
+    const favoriteLogements = logements.filter(l => favoriteIds.includes(l.id));
+
+    res.json(favoriteLogements);
+});
+
+// Add a favorite
+app.post('/api/me/favorites', verifyToken, (req, res) => {
+    const { logementId } = req.body;
+    if (!logementId) {
+        return res.status(400).json({ message: 'Logement ID is required' });
+    }
+
+    const users = readUsers();
+    const userIndex = users.findIndex(u => u.id === req.user.id);
+
+    if (userIndex === -1) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (!users[userIndex].favorites) {
+        users[userIndex].favorites = [];
+    }
+
+    if (users[userIndex].favorites.includes(logementId)) {
+        return res.status(409).json({ message: 'Already in favorites' });
+    }
+
+    users[userIndex].favorites.push(logementId);
+    writeUsers(users);
+
+    res.status(200).json({ message: 'Favorite added' });
+});
+
+// Remove a favorite
+// --- Update user role ---
+app.put('/api/me/role', verifyToken, (req, res) => {
+    const { role } = req.body;
+    if (!role || !['tenant', 'host'].includes(role)) {
+        return res.status(400).json({ message: 'Invalid role specified.' });
+    }
+
+    const users = readUsers();
+    const userIndex = users.findIndex(u => u.id === req.user.id);
+
+    if (userIndex === -1) {
+        return res.status(404).json({ message: 'User not found.' });
+    }
+
+    users[userIndex].role = role;
+    writeUsers(users);
+
+    res.status(200).json({ message: 'Role updated successfully.', user: users[userIndex] });
+});
+
+app.delete('/api/me/favorites/:logementId', verifyToken, (req, res) => {
+    const { logementId } = req.params;
+    const users = readUsers();
+    const userIndex = users.findIndex(u => u.id === req.user.id);
+
+    if (userIndex === -1) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+
+    const favorites = users[userIndex].favorites || [];
+    const updatedFavorites = favorites.filter(id => id !== logementId);
+
+    if (favorites.length === updatedFavorites.length) {
+        return res.status(404).json({ message: 'Favorite not found' });
+    }
+
+    users[userIndex].favorites = updatedFavorites;
+    writeUsers(users);
+
+    res.status(200).json({ message: 'Favorite removed' });
 });
 
 

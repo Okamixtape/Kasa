@@ -1,4 +1,4 @@
-@import '../../style/base/_var.scss';
+@use '../../style/base/var' as *;
 
 .gallery {
     display: flex;
@@ -7,7 +7,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     background-color: $c-light-grey;
-    border-radius: $border-radius;
+    border-radius: $radius-lg;
 
     .gallery__no-results {
         width: 100%;

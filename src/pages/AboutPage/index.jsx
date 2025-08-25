@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import Meta from '../../components/Meta';
 import Banner from '../../components/Banner';
 import Collapse from '../../components/Collapse';
 import TeamMemberCard from '../../components/TeamMemberCard';
@@ -26,13 +26,10 @@ const teamMembers = [
 const AboutPage = () => {
     return (
         <>
-            <Helmet>
-                <title>À Propos de Kasa - Notre Mission et Nos Valeurs</title>
-                <meta
-                    name="description"
-                    content="Découvrez la mission de Kasa : réinventer l'hospitalité en offrant des logements de qualité, vérifiés par nos soins, pour une expérience de voyage exceptionnelle."
-                />
-            </Helmet>
+            <Meta 
+                title="À Propos - Notre Mission et Nos Valeurs"
+                description="Découvrez la mission de Kasa : réinventer l'hospitalité en offrant des logements de qualité, vérifiés par nos soins, pour une expérience de voyage exceptionnelle."
+            />
             <main className="kasa__wrapper fade-in">
                 <Banner banner="about" title="À propos de Kasa" />
                 <section className="about-page__content">

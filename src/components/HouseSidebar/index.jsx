@@ -4,7 +4,8 @@ import BookingWidget from '../BookingWidget';
 import { useAuth } from '../../context/AuthContext';
 import './_house-sidebar.scss';
 
-const HouseSidebar = ({ host, reviews, houseId }) => {
+const HouseSidebar = ({ house }) => {
+    const { host, reviews, id: houseId, price } = house;
     const { user } = useAuth();
     const hostNameParts = host.name ? host.name.split(' ') : ['Hôte', 'Inconnu'];
 
@@ -26,7 +27,7 @@ const HouseSidebar = ({ host, reviews, houseId }) => {
                     <AverageRating reviews={reviews} />
                 </div>
             </div>
-            {user && <BookingWidget houseId={houseId} />}
+            {user && <BookingWidget houseId={houseId} price={price} />}
         </div>
     );
 };

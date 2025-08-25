@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Meta from '../../components/Meta';
 import { useAuth } from '../../context/AuthContext';
+import { useNotification } from '../../context/NotificationContext';
 
 
 const LoginPage = () => {
@@ -9,6 +10,7 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const { login } = useAuth();
+    const { addNotification } = useNotification();
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -30,7 +32,14 @@ const LoginPage = () => {
                 throw new Error(data.message || 'Failed to login');
             }
 
-            login(data.token, data.userName);
+            // Simulate receiving permissions from the backend
+            const permissions = data.user.role === 'host' 
+                ? ['view_host_dashboard', 'manage_listings', 'view_analytics'] 
+                : ['write_review', 'view_bookings'];
+            const userWithPermissions = { ...data.user, permissions };
+
+            login(data.token, userWithPermissions);
+            addNotification(`Bienvenue, ${userWithPermissions.name} !`, 'success');
             navigate('/');
         } catch (err) {
             setError(err.message);
@@ -39,13 +48,10 @@ const LoginPage = () => {
 
     return (
         <>
-            <Helmet>
-                <title>Connexion - Kasa</title>
-                <meta
-                    name="description"
-                    content="Connectez-vous à votre compte Kasa pour accéder à vos réservations et gérer votre profil."
-                />
-            </Helmet>
+            <Meta 
+                title="Connexion"
+                description="Connectez-vous à votre compte Kasa pour accéder à vos réservations et gérer votre profil."
+            />
             <main className="kasa__wrapper fade-in kasa__main-container auth-page">
                 <div className="auth-container">
                     <h1>Connexion</h1>

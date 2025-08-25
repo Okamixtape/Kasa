@@ -8,7 +8,7 @@ const Footer = () => {
         <footer className="footer">
             <img className="footer__logo" src={whiteLogo} alt="logo de Kasa" />
             <nav className="footer__nav">
-                <Link to="/blog/choisir-sa-location-de-vacances">Blog</Link>
+                <Link to="/blog">Blog</Link>
             </nav>
             <p className="footer__copyright">© 2024 Kasa. All rights reserved</p>
         </footer>

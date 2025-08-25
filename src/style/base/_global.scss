@@ -1,4 +1,5 @@
-@import "./var";
+@use './var' as *;
+@use './fonts' as *;
 
 body {
     font-family: $font-body;

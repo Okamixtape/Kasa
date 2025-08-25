@@ -102,9 +102,13 @@ const MyBookingsPage = () => {
                         <div key={booking.id} className="booking-card">
                             {booking.house ? (
                                 <>
-                                    <img src={booking.house.cover} alt={booking.house.title} className="booking-card__image" />
+                                                                        <Link to={`/house/${booking.house.id}`}>
+                                        <img src={booking.house.cover} alt={booking.house.title} className="booking-card__image" />
+                                    </Link>
                                     <div className="booking-card__info">
-                                        <h2>{booking.house.title}</h2>
+                                                                                <Link to={`/house/${booking.house.id}`} className="booking-card__title-link">
+                                            <h2>{booking.house.title}</h2>
+                                        </Link>
                                         <p><strong>Du:</strong> {new Date(booking.startDate).toLocaleDateString()}</p>
                                         <p><strong>Au:</strong> {new Date(booking.endDate).toLocaleDateString()}</p>
                                         <div className="booking-card__actions">

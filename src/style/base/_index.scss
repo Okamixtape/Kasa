@@ -1,8 +1,8 @@
 // Import scss of base
 
-@import 'var';
-@import 'fonts';
-@import 'reset';
-@import 'global';
-@import 'layout';
+@use 'var';
+@use 'fonts';
+@use 'reset';
+@use 'global';
+@use 'layout';
 

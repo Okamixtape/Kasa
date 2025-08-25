@@ -22,6 +22,11 @@
         object-fit: cover;
     }
 
+    &__title-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
     &__info {
         padding: 1rem 1.5rem;
         display: flex;

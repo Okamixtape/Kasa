@@ -1,4 +1,4 @@
-@import '../../style/base/_var.scss';
+@use '../../style/base/var' as *;
 
 .carousel {
     position: relative;
@@ -7,64 +7,103 @@
     aspect-ratio: 16 / 9;
     max-height: 500px;
     margin: 50px 0;
+    border-radius: 25px;
     overflow: hidden;
+
+    .carousel__inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .carousel__item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        z-index: 1;
+
+        &.active {
+            opacity: 1;
+            z-index: 2;
+        }
+    }
 
     .carousel__picture {
         object-fit: cover;
         width: 100%;
         height: 100%;
-        border-radius: 25px;
     }
 
     .carousel__pagination {
         position: absolute;
         bottom: 25px;
         left: 50%;
-        font-size: 24px;
-        font-weight: 500;
-        line-height: 142.6%;
-        color: $c-white;
         transform: translateX(-50%);
+        font-size: 1.125rem;
+        color: $c-white;
+        z-index: 3;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     }
 
-    .carousel__leftIcon,
-    .carousel__rightIcon {
+    .carousel__button {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        background: none;
+        border: none;
         cursor: pointer;
-    }
+        z-index: 3;
+        padding: 10px;
+        width: 48px;
+        height: 80px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 30px;
+        filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
 
-    .carousel__leftIcon {
-        left: 10px;
-    }
+        &--prev {
+            left: 10px;
+            background-image: url('../../assets/arrow-left.svg');
+        }
 
-    .carousel__rightIcon {
-        transform: translateY(-50%) rotate(180deg);
-        right: 10px;
+        &--next {
+            right: 10px;
+            background-image: url('../../assets/arrow-right.svg');
+        }
     }
 }
 
 @media screen and (max-width: $tablet-down) {
     .carousel {
-        aspect-ratio: 3 / 2;
+        aspect-ratio: 4 / 3;
+        margin: 30px 0;
 
-        .carousel__leftIcon,
-        .carousel__rightIcon {
-            width: 50px;
-            height: 50px;
+        .carousel__button {
+            background-size: 24px;
+        }
+
+        .carousel__pagination {
+            font-size: 1rem;
         }
     }
 }
 
 @media screen and (max-width: $mobile-down) {
     .carousel {
-        aspect-ratio: 4 / 3;
+        border-radius: 15px;
+        margin: 20px 0;
 
-        .carousel__leftIcon,
-        .carousel__rightIcon {
-            width: 30px;
-            height: 30px;
+        .carousel__button {
+            padding: 5px;
+            background-size: 20px;
+        }
+
+        .carousel__pagination {
+            display: none; // Hide pagination on smallest screens to reduce clutter
         }
     }
 }

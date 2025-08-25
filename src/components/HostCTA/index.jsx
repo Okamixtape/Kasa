@@ -14,14 +14,16 @@ const HostCTA = () => {
             navigate('/login', { state: { from: '/become-a-host/onboarding' } });
         }
     };
+    if (user && user.role === 'host') {
+        return null;
+    }
+
     return (
-        <section className="host-cta-section">
-            <div className="host-cta-content">
+        <div className="host-cta-content">
                 <h2>Prêt à vous lancer ?</h2>
                 <p>Devenez hôte sur Kasa et commencez à gagner un revenu complémentaire en toute simplicité.</p>
                 <button onClick={handleStart} className="host-cta-button">Commencer</button>
-            </div>
-        </section>
+        </div>
     );
 };
 

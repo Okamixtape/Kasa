@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import Carousel from '../../components/Carousel';
-import HouseCard from '../../components/HouseCard';
+import Meta from '../../components/Meta';
 import Collapse from '../../components/Collapse';
+import HouseCard from '../../components/HouseCard';
+import BackLink from '../../components/BackLink';
 import ReviewsSection from '../../components/ReviewsSection';
+import Carousel from '../../components/Carousel';
 import HouseSidebar from '../../components/HouseSidebar';
 import ErrorPage from '../ErrorPage';
+import Location from '../../components/Location';
 import './_house-page.scss';
 
 const HousePage = () => {
@@ -14,6 +16,15 @@ const HousePage = () => {
     const [house, setHouse] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+    const token = localStorage.getItem('token'); // Get token for review submission
+
+    const handleReviewSubmit = (newReview) => {
+        setHouse(prevHouse => ({
+            ...prevHouse,
+            reviews: [...prevHouse.reviews, newReview]
+        }));
+    };
+
 
     useEffect(() => {
         setLoading(true);
@@ -44,7 +55,7 @@ const HousePage = () => {
         return <ErrorPage />;
     }
 
-    const pageTitle = `${house.title} - Kasa`;
+
     const pageDescription = `Découvrez ce logement d'exception : ${house.title}, situé à ${house.location}. Profitez d'un séjour inoubliable.`;
 
     const structuredData = {
@@ -66,15 +77,14 @@ const HousePage = () => {
 
     return (
         <>
-            <Helmet>
-                <title>{pageTitle}</title>
-                <meta name="description" content={pageDescription} />
+            <Meta title={house.title} description={pageDescription}>
                 <script type="application/ld+json">
                     {JSON.stringify(structuredData)}
                 </script>
-            </Helmet>
+            </Meta>
             <main className="kasa__wrapper fade-in">
-                <Carousel pictures={house.pictures} />
+                <BackLink />
+                <Carousel pictures={house.pictures} title={house.title} />
                 <div className="house-page__layout">
                     <div className="house-page__main-content">
                         <HouseCard
@@ -85,6 +95,7 @@ const HousePage = () => {
                             tags={house.tags}
                             host={house.host}
                             reviews={house.reviews}
+                            price={house.price}
                         />
                         <div className="collapse__wrapper -housePage">
                             <Collapse
@@ -95,15 +106,14 @@ const HousePage = () => {
                             <Collapse
                                 key="Équipements"
                                 title="Équipements"
-                                text={house.equipments}
+                                text={house.equipments.join(', ')}
                             />
                         </div>
+                        <Location logement={house} />
                     </div>
-                    <div className="house-page__sidebar">
-                        <HouseSidebar host={house.host} reviews={house.reviews} houseId={house.id} />
-                    </div>
+                    <HouseSidebar house={house} />
                 </div>
-                <ReviewsSection reviews={house.reviews} />
+                <ReviewsSection reviews={house.reviews} logementId={house.id} onReviewSubmit={handleReviewSubmit} token={token} />
             </main>
         </>
     );

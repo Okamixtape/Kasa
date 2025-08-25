@@ -12,17 +12,23 @@ const Collapse = ({ title, text }) => {
 
     return (
         <section className="collapse__item">
-            <div className="collapse__titleWrapper" onClick={toggleCollapse}>
+            <button
+                className="collapse__titleWrapper"
+                onClick={toggleCollapse}
+                aria-expanded={isOpen}
+                aria-controls={`collapse-content-${title.replace(/\s/g, '-')}`}
+            >
                 <h2 className="collapse__title">{title}</h2>
                 <img
                     className={`collapse__icon ${isOpen ? 'open' : ''}`}
                     src={arrow}
-                    alt="Afficher le contenu"
+                    alt=""
                 />
-            </div>
+            </button>
             <div
+                id={`collapse-content-${title.replace(/\s/g, '-')}`}
                 ref={contentRef}
-                className="collapse__content-wrapper"
+                className={`collapse__content-wrapper ${isOpen ? 'open' : ''}`}
                 style={{ maxHeight: isOpen ? `${contentRef.current.scrollHeight}px` : '0px' }}
             >
                 <div className="collapse__text">

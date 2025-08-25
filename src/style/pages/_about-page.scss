@@ -1,3 +1,5 @@
+@use '../base/var' as *;
+
 .about-page__intro {
     max-width: 800px; // Limit width for better readability
     margin: 40px auto; // Center the block and add vertical spacing
@@ -13,7 +15,7 @@
     margin: 60px auto;
     padding: 40px;
     background-color: $c-light-grey;
-    border-radius: $card-radius;
+    border-radius: $radius-md;
     text-align: center;
 }
 

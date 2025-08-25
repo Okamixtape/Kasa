@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import Meta from '../../components/Meta';
 import Banner from '../../components/Banner';
 import Gallery from '../../components/Gallery';
+import FilterBar from '../../components/FilterBar';
 import useDebounce from '../../hooks/useDebounce';
 import BackToTopButton from '../../components/BackToTopButton';
-import FeaturedBlogCard from '../../components/FeaturedBlogCard';
-import HostCTA from '../../components/HostCTA';
+import HomeHighlights from '../../components/HomeHighlights';
+import GlobalMap from '../../components/GlobalMap';
 
 const HomePage = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const debouncedSearchTerm = useDebounce(searchTerm, 500);
     const [allHouseData, setAllHouseData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
+    const [filters, setFilters] = useState({ maxPrice: 500, tag: '' });
+    const [favorites, setFavorites] = useState(new Set());
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
                 fetch(`${process.env.REACT_APP_API_URL}/logements`)
@@ -21,17 +25,49 @@ const HomePage = () => {
                 setFilteredData(data);
             })
             .catch(error => console.error('Error fetching housing data:', error));
-    }, []);
+
+        if (token) {
+                        fetch(`${process.env.REACT_APP_API_URL}/me/favorites`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (Array.isArray(data)) {
+                    setFavorites(new Set(data.map(fav => fav.id)));
+                }
+            })
+            .catch(error => console.error('Error fetching favorites:', error));
+        }
+    }, [token]);
 
     useEffect(() => {
         const filtered = allHouseData.filter(house => {
             const term = debouncedSearchTerm.toLowerCase();
             const titleMatch = house.title.toLowerCase().includes(term);
             const locationMatch = house.location.toLowerCase().includes(term);
-            return titleMatch || locationMatch;
+            const searchMatch = titleMatch || locationMatch;
+
+            const priceMatch = house.price <= filters.maxPrice;
+            const tagMatch = filters.tag ? house.tags && house.tags.includes(filters.tag) : true;
+
+            return searchMatch && priceMatch && tagMatch;
         });
         setFilteredData(filtered);
-    }, [debouncedSearchTerm, allHouseData]);
+    }, [debouncedSearchTerm, allHouseData, filters]);
+
+    const handleToggleFavorite = (logementId, isFavorite) => {
+        const newFavorites = new Set(favorites);
+        if (isFavorite) {
+            newFavorites.add(logementId);
+        } else {
+            newFavorites.delete(logementId);
+        }
+        setFavorites(newFavorites);
+    };
+
+    const allTags = [...new Set(allHouseData.flatMap(house => house.tags || []))];
 
     const featuredArticle = {
         id: 'pourquoi-investir-immobilier-locatif',
@@ -42,21 +78,19 @@ const HomePage = () => {
 
     return (
         <>
-            <Helmet>
-                <title>Kasa - Location d&apos;appartements entre particuliers</title>
-                <meta
-                    name="description"
-                    content="Trouvez le logement de vos rêves avec Kasa. Nous proposons des appartements de qualité, vérifiés par nos soins, pour un séjour inoubliable."
-                />
-            </Helmet>
+            <Meta />
             <main className="kasa__wrapper fade-in">
                 <Banner banner="homeBanner" onSearch={setSearchTerm} />
+                <FilterBar onFilterChange={setFilters} allTags={allTags} />
                 <div role="status" aria-live="polite" className="visually-hidden">
                     {debouncedSearchTerm && `${filteredData.length} résultats trouvés`}
                 </div>
-                <Gallery filteredData={filteredData} />
-                <HostCTA />
-                <FeaturedBlogCard article={featuredArticle} />
+                                <section className="global-map-container">
+                    <h2 className="global-map-title">Découvrez nos logements sur la carte</h2>
+                    <GlobalMap logements={filteredData} />
+                </section>
+                <HomeHighlights featuredArticle={featuredArticle} />
+                <Gallery filteredData={filteredData} favorites={favorites} onToggleFavorite={handleToggleFavorite} />
             </main>
             <BackToTopButton />
         </>

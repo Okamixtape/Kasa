@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Meta from '../../components/Meta';
 
 const SignupPage = () => {
     const [name, setName] = useState('');
@@ -36,10 +36,10 @@ const SignupPage = () => {
 
     return (
         <>
-            <Helmet>
-                <title>Inscription - Kasa</title>
-                <meta name="description" content="Créez un compte Kasa pour réserver des logements et gérer votre profil." />
-            </Helmet>
+            <Meta 
+                title="Inscription"
+                description="Créez un compte Kasa pour réserver des logements et gérer votre profil."
+            />
             <main className="kasa__wrapper fade-in kasa__main-container auth-page">
                 <div className="auth-container">
                     <h1>Inscription</h1>

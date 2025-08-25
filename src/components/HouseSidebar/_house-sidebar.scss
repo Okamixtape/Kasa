@@ -1,4 +1,4 @@
-@import '../../style/base/_var.scss';
+@use '../../style/base/var' as *;
 
 .house-sidebar {
     background-color: $c-light-grey;

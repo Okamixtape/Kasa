@@ -1,13 +1,26 @@
-@import '../../style/base/var';
-@import '../../style/base/fonts';
+@use '../../style/base/var' as *;
+@use '../../style/base/fonts' as *;
+
+@keyframes fadeIn { 
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .gallery-card {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0; // Start hidden
     position: relative;
     width: 340px;
     height: 340px;
     margin: 20px;
     display: block;
-    border-radius: $card-radius;
+    border-radius: $radius-md;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -31,13 +44,30 @@
         background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
     }
 
-    &__title {
+    &__info {
         position: absolute;
         bottom: 20px;
         left: 20px;
         right: 20px;
-        color: $c-white;
-        font-family: $font-headings;
-        font-size: $fs-h3;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    &__title {
+        font-size: 1.125rem;
+        font-weight: 500;
+        margin: 0;
+        max-width: 70%;
+    }
+
+    &__price {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0;
+        background-color: rgba(0,0,0,0.5);
+        padding: 4px 8px;
+        border-radius: $radius-sm;
     }
 }

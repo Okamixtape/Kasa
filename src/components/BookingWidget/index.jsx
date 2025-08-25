@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './_booking-widget.scss';
@@ -8,10 +8,12 @@ import { useAuth } from '../../context/AuthContext';
 
 registerLocale('fr', fr);
 
-const BookingWidget = ({ houseId }) => {
+const BookingWidget = ({ houseId, price }) => {
+    const navigate = useNavigate();
     const { user } = useAuth();
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
+    const [totalPrice, setTotalPrice] = useState(0);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [bookedDates, setBookedDates] = useState([]);
@@ -65,13 +67,14 @@ const BookingWidget = ({ houseId }) => {
                 body: JSON.stringify({ houseId, startDate: startDate.toISOString().split('T')[0], endDate: endDate.toISOString().split('T')[0] }),
             });
 
-            const data = await response.json();
-
             if (!response.ok) {
-                throw new Error(data.message || 'La réservation a échoué.');
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'La réservation a échoué.');
             }
 
+            const data = await response.json();
             setSuccess('Réservation réussie !');
+            navigate(`/booking-confirmation/${data.booking.id}`);
             setBookedDates(prev => [...prev, { start: startDate, end: endDate }]);
             setStartDate(null);
             setEndDate(null);
@@ -82,9 +85,17 @@ const BookingWidget = ({ houseId }) => {
     };
 
     const onChange = (dates) => {
-        const [start, end] = dates;
+                const [start, end] = dates;
         setStartDate(start);
         setEndDate(end);
+
+        if (start && end) {
+            const timeDiff = Math.abs(end.getTime() - start.getTime());
+            const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            setTotalPrice(diffDays * price);
+        } else {
+            setTotalPrice(0);
+        }
     };
 
     if (!user) {
@@ -116,6 +127,13 @@ const BookingWidget = ({ houseId }) => {
                         dateFormat="P"
                     />
                 </div>
+                                {startDate && endDate && (
+                    <div className="booking-widget__summary">
+                        <p>Nombre de nuits : {Math.ceil(Math.abs(endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24))}</p>
+                        <p>Prix par nuit : {price}€</p>
+                        <p className="booking-widget__total-price">Prix total : {totalPrice}€</p>
+                    </div>
+                )}
                 <button type="submit" disabled={!startDate || !endDate}>Réserver</button>
                 {error && <p className="error-message">{error}</p>}
                 {success && <p className="success-message">{success}</p>}

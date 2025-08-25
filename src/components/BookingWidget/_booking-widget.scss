@@ -1,18 +1,21 @@
+@use 'sass:color';
+@use '../../style/base/var' as *;
+
 .booking-widget {
-    background-color: #f6f6f6;
+    background-color: $c-light-grey;
     padding: 1.5rem 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 
     h3 {
         text-align: center;
-        color: #ff6060;
+        color: $c-orange-red-light;
         margin-top: 0;
         margin-bottom: 1.5rem;
     
     .booking-widget__login-prompt {
         text-align: center;
-        color: #484848;
+        color: $c-text-main;
         padding: 2rem 1rem;
         font-size: 1.1rem;
         line-height: 1.5;
@@ -23,7 +26,7 @@
             font-weight: 500;
 
             &:hover {
-                color: #e05555;
+                color: color.adjust($c-orange-red-light, $lightness: -5%);
             }
         }
     }
@@ -36,13 +39,32 @@
     }
 
     .success-message {
-        color: #2ecc71;
+        color: $c-accent-success;
         text-align: center;
         margin-top: 1rem;
     }
 
+    .booking-widget__summary {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #e0e0e0;
+        
+        p {
+            margin: 0.5rem 0;
+            color: #484848;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .booking-widget__total-price {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: $c-text-main;
+        }
+    }
+
     button[type="submit"] {
-        background-color: #ff6060;
+        background-color: $c-orange-red-light;
         color: white;
         border: none;
         padding: 0.8rem 1.5rem;
@@ -55,7 +77,7 @@
         margin-top: 1rem;
 
         &:hover:not(:disabled) {
-            background-color: #e05555;
+            background-color: color.adjust($c-orange-red-light, $lightness: -5%);
         }
 
         &:disabled {

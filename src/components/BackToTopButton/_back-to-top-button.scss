@@ -1,4 +1,5 @@
-@import '../../style/base/var';
+@use 'sass:color';
+@use '../../style/base/var' as *;
 
 .back-to-top {
     &__button {
@@ -25,7 +26,7 @@
         }
 
         &:hover {
-            background-color: darken($c-primary, 10%);
+            background-color: color.adjust($c-primary, $lightness: -10%);
             transform: scale(1.1);
         }
     }

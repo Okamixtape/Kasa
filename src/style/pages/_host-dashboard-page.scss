@@ -1,0 +1,42 @@
+.host-dashboard-page {
+    padding: 2rem;
+
+    h1 {
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .dashboard-modules {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .dashboard-module {
+        background-color: #fff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+        h2 {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        a {
+            color: #FF6060;
+            text-decoration: none;
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

@@ -2,7 +2,8 @@
 
 // Primary
 
-$c-orange-red: #ff6060;
+$c-orange-red: #E55353; // Darkened for better contrast (4.55:1 on white)
+$c-orange-red-light: #FF6060; // Original color, can be used for hover/focus states
 $c-light-grey: #f7f7f7;
 $c-primary: $c-orange-red;
 
@@ -11,6 +12,7 @@ $c-primary: $c-orange-red;
 $c-black: #000;
 $c-white: #fff;
 $c-text-main: #333333;
+$c-text-secondary: #666;
 $c-accent-success: #4CAF50;
 $c-grey: #808080;
 
@@ -30,8 +32,13 @@ $fs-h5: 1rem; // 16px
 
 // Border-radius
 
-$border-radius: 25px;
-$card-radius: 10px;
+$radius-sm: 5px;
+$radius-md: 10px;
+$radius-lg: 25px;
+
+// Shadows
+
+$shadow-main: 0 4px 15px rgba(0, 0, 0, 0.1);
 
 // Linear-gradient 
 

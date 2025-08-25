@@ -3,6 +3,9 @@
     "id": "1755785570603",
     "name": "Lobo",
     "email": "lobo@gmail.com",
-    "password": "$2b$10$i4JyUgDHgZ.2pGB0HN7pJukyToPAgR6rudcIo73YZWd4Y8KnlpHNC"
+    "password": "$2b$10$i4JyUgDHgZ.2pGB0HN7pJukyToPAgR6rudcIo73YZWd4Y8KnlpHNC",
+    "favorites": [
+      "7af00cd6"
+    ]
   }
 ]

@@ -1,17 +1,17 @@
-.host-cta-section {
-    padding: 4rem 2rem;
+@use 'sass:color';
+@use '../../style/base/var' as *;
+.host-cta-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80') no-repeat center center;
     background-size: cover;
     color: white;
     text-align: center;
-    border-radius: 10px;
-    margin: 3rem auto;
-    max-width: 1240px;
-
-    .host-cta-content {
-        max-width: 600px;
-        margin: 0 auto;
-    }
+    border-radius: $radius-lg;
+    height: 100%;
 
     h2 {
         font-size: 2.5rem;
@@ -21,20 +21,21 @@
     p {
         font-size: 1.1rem;
         margin-bottom: 2rem;
+        max-width: 600px;
     }
 
     .host-cta-button {
-        background-color: #ff6060;
+        background-color: $c-primary;
         color: white;
         padding: 1rem 2.5rem;
-        border-radius: 8px;
+        border-radius: $radius-md;
         text-decoration: none;
         font-weight: bold;
         font-size: 1.1rem;
         transition: background-color 0.3s, transform 0.3s;
 
         &:hover {
-            background-color: darken(#ff6060, 10%);
+            background-color: color.adjust($c-primary, $lightness: -10%);
             transform: translateY(-2px);
         }
     }

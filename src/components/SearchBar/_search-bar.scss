@@ -1,5 +1,5 @@
-@import '../../style/base/var';
-@import '../../style/base/fonts';
+@use '../../style/base/var' as *;
+@use '../../style/base/fonts' as *;
 
 .search-bar {
     position: relative;
