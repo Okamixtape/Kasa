@@ -57,7 +57,7 @@ const GlobalMap = ({ logements }) => {
   const defaultCenter = [46.603354, 1.888334];
 
   return (
-    <MapContainer center={defaultCenter} zoom={6} scrollWheelZoom={false} style={{ height: '400px', width: '100%' }}>
+    <MapContainer className="global-map" center={defaultCenter} zoom={6} scrollWheelZoom={false}>
             <FitBounds points={points} />
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -94,7 +94,7 @@ const MyBookingsPage = () => {
                 <title>Mes réservations - Kasa</title>
                 <meta name="description" content="Consultez et gérez vos réservations sur Kasa. Retrouvez les détails de vos séjours passés et à venir." />
             </Helmet>
-            <main className="kasa__wrapper fade-in">
+            <main className="kasa__wrapper fade-in my-bookings-page">
                 <h1>Mes réservations</h1>
                 <p>Retrouvez ici l&apos;historique de vos séjours.</p>
                 <div className="bookings-container">

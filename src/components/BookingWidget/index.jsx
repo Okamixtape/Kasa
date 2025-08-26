@@ -98,18 +98,17 @@ const BookingWidget = ({ houseId, price }) => {
         }
     };
 
-    if (!user) {
-        return (
-            <div className="booking-widget">
-                <div className="booking-widget__login-prompt">
-                    <Link to="/login">Connectez-vous</Link> ou <Link to="/signup">inscrivez-vous</Link> pour réserver.
-                </div>
-            </div>
-        );
-    }
+    const isAuthenticated = !!user;
 
     return (
-        <div className="booking-widget">
+        <div className={`booking-widget ${!isAuthenticated ? '-disabled' : ''}`}>
+            {!isAuthenticated && (
+                <div className="booking-widget__overlay">
+                    <div className="booking-widget__login-prompt">
+                        <p><Link to="/login">Connectez-vous</Link> ou <Link to="/signup">inscrivez-vous</Link> pour réserver.</p>
+                    </div>
+                </div>
+            )}        
             <h3>Réserver ce logement</h3>
             <form onSubmit={handleSubmit}>
                 <div className="booking-widget__datepicker-container">
@@ -125,6 +124,7 @@ const BookingWidget = ({ houseId, price }) => {
                         monthsShown={2}
                         locale="fr"
                         dateFormat="P"
+                        disabled={!isAuthenticated}
                     />
                 </div>
                                 {startDate && endDate && (
@@ -139,7 +139,7 @@ const BookingWidget = ({ houseId, price }) => {
                     </div>
                 </div>
                 )}
-                <button type="submit" disabled={!startDate || !endDate}>Réserver</button>
+                <button type="submit" disabled={!isAuthenticated || !startDate || !endDate}>Réserver</button>
                 {error && <p className="error-message">{error}</p>}
                 {success && <p className="success-message">{success}</p>}
             </form>

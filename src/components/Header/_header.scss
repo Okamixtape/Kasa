@@ -11,7 +11,7 @@ header.header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1240px;
+        max-width: 1440px;
         margin: 0 auto;
         padding: 20px 40px;
         transition: padding 0.3s ease;
@@ -48,23 +48,6 @@ header.header {
         gap: 20px;
     }
     
-    .header__host-button {
-        font-weight: 500;
-        font-size: $fs-h4;
-        color: $c-primary;
-        text-decoration: none;
-        padding: 8px 16px;
-        border-radius: $radius-md;
-        border: 1px solid $c-light-grey;
-        background-color: transparent;
-        transition: all 0.3s ease;
-
-        &:hover {
-            background-color: $c-light-grey;
-            border-color: #ddd;
-            color: darken($c-primary, 5%);
-        }
-    }
 
     .header__navbarListItem {
         padding-left: 0; // Reset padding
@@ -101,6 +84,21 @@ header.header {
 
         &:hover:not(.active)::after {
             width: 100%;
+        }
+
+        &--button {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            font: inherit;
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+
+            &::after {
+                display: none;
+            }
         }
     }
 
@@ -149,8 +147,7 @@ header.header {
         }
 
         .header__navbarListAnchor,
-        .header__auth-button,
-        .header__host-button {
+        .header__auth-button {
             font-size: 1rem;
             text-transform: uppercase;
         }
@@ -280,9 +277,6 @@ header.header {
             gap: 15px;
         }
 
-        .header__navbar .header__host-button {
-            display: none; // Hide the original host button, we use the mobile-only one
-        }
     }
 }
 
@@ -297,8 +291,7 @@ header.header {
         }
 
         .header__navbarListAnchor,
-        .header__auth-button,
-        .header__host-button {
+        .header__auth-button {
             font-size: $fs-small;
             text-transform: uppercase;
         }

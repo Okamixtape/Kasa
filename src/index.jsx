@@ -16,8 +16,8 @@ const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const SignupPage = lazy(() => import('./pages/SignupPage'));
 const MyBookingsPage = lazy(() => import('./pages/MyBookingsPage'));
-const BecomeHostPage = lazy(() => import('./pages/BecomeHostPage'));
-const HostOnboardingPage = lazy(() => import('./pages/HostOnboardingPage'));
+
+
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
 const BlogIndexPage = lazy(() => import('./pages/BlogIndexPage'));
 const FavoritesPage = lazy(() => import('./pages/FavoritesPage'));
@@ -45,8 +45,8 @@ root.render(
                             <Route path="login" element={<LoginPage />} />
                             <Route path="signup" element={<SignupPage />} />
                             <Route path="my-bookings" element={<MyBookingsPage />} />
-                            <Route path="become-host" element={<ProtectedRoute><BecomeHostPage /></ProtectedRoute>} />
-                            <Route path="become-a-host/onboarding" element={<ProtectedRoute><HostOnboardingPage /></ProtectedRoute>} />
+
+
                             <Route path="blog" element={<BlogIndexPage />} />
                             <Route path="blog/:id" element={<BlogPostPage />} />
                             <Route path="favorites" element={<ProtectedRoute><FavoritesPage /></ProtectedRoute>} />

@@ -1,13 +1,14 @@
 import React from 'react';
 import './_header.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import ProfileDropdown from '../ProfileDropdown';
 import { useState, useEffect, useRef } from 'react';
 import redLogo from '../../assets/redLogo.png';
 
 const Header = () => {
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const headerRef = useRef(null);
@@ -31,6 +32,12 @@ const Header = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+
+    const handleLogout = () => {
+        logout();
+        navigate('/');
+        setMobileMenuOpen(false);
+    };
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!isMobileMenuOpen);
@@ -61,11 +68,17 @@ const Header = () => {
                                     <NavLink className="header__navbarListAnchor" to="/host/dashboard">Tableau de bord</NavLink>
                                 </li>
                             )}
-                            {(!user || user.role === 'tenant') && (
+                            {user && (
                                 <li className="header__navbarListItem header__navbarListItem--mobile-only">
-                                    <NavLink className="header__host-button" to="/become-host">Devenez hôte</NavLink>
+                                    <NavLink className="header__navbarListAnchor" to="/my-bookings" onClick={() => setMobileMenuOpen(false)}>Mes réservations</NavLink>
                                 </li>
                             )}
+                            {user && (
+                                <li className="header__navbarListItem header__navbarListItem--mobile-only">
+                                    <button onClick={handleLogout} className="header__navbarListAnchor header__navbarListAnchor--button">Déconnexion</button>
+                                </li>
+                            )}
+
                             {!user && (
                                 <>
                                     <li className="header__navbarListItem header__navbarListItem--divider-mobile"></li>
@@ -88,9 +101,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="header__actions">
-                    {(!user || user.role === 'tenant') && (
-                        <NavLink className="header__host-button" to="/become-host">Devenez hôte</NavLink>
-                    )}
+
                     {user ? (
                         <ProfileDropdown />
                     ) : (

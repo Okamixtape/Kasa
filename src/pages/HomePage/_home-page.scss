@@ -1,0 +1,240 @@
+@use '../../style/base/var' as *;
+
+.hero {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: transparent;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #666;
+    }
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.view-toggle {
+    display: none;
+    background-color: $c-light-grey;
+    border-radius: 2rem;
+    padding: 0.25rem;
+    border: 1px solid #e0e0e0;
+
+    &__button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        background-color: transparent;
+        border-radius: 2rem;
+        cursor: pointer;
+        font-weight: 500;
+        color: $c-text-secondary;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+        svg {
+            stroke: $c-text-secondary;
+            transition: stroke 0.2s ease-in-out;
+        }
+
+        &.active {
+            background-color: $c-primary;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+            svg {
+                stroke: white;
+            }
+        }
+    }
+}
+
+.results-count {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.home-page-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-areas:
+        "hero hero"
+        "search search"
+        "results results"
+        "gallery map";
+    gap: 2rem;
+    align-items: start;
+
+    .hero {
+        grid-area: hero;
+        background-image: url('../../assets/homeBanner.png');
+        background-size: cover;
+        background-position: center;
+        border-radius: 25px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 223px;
+        position: relative;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 25px;
+            z-index: -1;
+        }
+
+        h1, p {
+            text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            color: white;
+        }
+
+        @media screen and (max-width: $tablet-down) {
+            height: 160px;
+            h1 {
+                font-size: 2.5rem;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media screen and (max-width: $mobile-down) {
+            background-image: url('../../assets/homeBanner-mobile.png');
+            height: 111px;
+            h1 {
+                font-size: 1.5rem;
+                padding: 0 1rem;
+            }
+            p {
+                display: none;
+            }
+        }
+    }
+
+    .search-section {
+        grid-area: search;
+    }
+
+    .results-header {
+        grid-area: results;
+    }
+
+    .properties-grid {
+        grid-area: gallery;
+    }
+
+    .map-container {
+        grid-area: map;
+    }
+}
+
+.map-container {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 120px; // Adjust this value to account for the header height
+    height: 80vh;
+    background: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+
+    .map-header {
+        padding: 1rem;
+        background: white;
+        border-bottom: 1px solid #e9ecef;
+        flex-shrink: 0; // Prevent header from shrinking
+    }
+
+    .map-title {
+        font-weight: 600;
+    }
+
+    .map-subtitle {
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    .global-map {
+        flex-grow: 1; // Allow map to fill available space
+        border-radius: 0 0 12px 12px;
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 1024px) {
+    .home-page-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "hero"
+            "search"
+            "results"
+            "gallery"
+            "map";
+    }
+
+    .results-header {
+        justify-content: center;
+        flex-direction: column-reverse;
+    }
+
+    .view-toggle {
+        display: flex;
+    }
+
+    .view-section {
+        display: none;
+        &.visible {
+            display: block;
+        }
+    }
+
+    .map-container {
+        position: relative;
+        top: auto;
+        height: 80vh;
+        margin-top: 0;
+        &.visible {
+            display: flex; // Keep flex direction for map layout
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+}

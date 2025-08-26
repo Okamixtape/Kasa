@@ -1,114 +1,106 @@
-@use '../../style/base/var' as *;
-
-.search-form-container {
-    background-color: $c-white;
-    padding: 20px;
-    border-radius: $radius-lg;
-    box-shadow: $shadow-main;
-    margin: -60px auto 0;
+.search-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin: -2rem auto 0;
+    max-width: 1200px;
     position: relative;
     z-index: 10;
-    max-width: 90%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    .search-bar {
-        position: relative;
-
-        &__icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: $c-grey;
-        }
-
-        &__input {
-            width: 100%;
-            padding: 15px 15px 15px 45px;
-            border: 1px solid #ddd;
-            border-radius: $radius-md;
-            font-size: 1rem;
-        }
-
-        &__clear-button {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: $c-grey;
-        }
-    }
-
-    .filters {
-        display: contents; // Allow filter groups to be direct grid items
-    }
-
-    .filter-group {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        label {
-            font-weight: 500;
-        }
-    }
-
-    .filter-slider {
-        width: 100%;
-    }
-
-    .filter-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .filter-tag {
-        padding: 8px 15px;
-        border: 1px solid #ddd;
-        border-radius: $radius-lg;
-        background-color: $c-white;
-        cursor: pointer;
-        transition: background-color 0.2s, color 0.2s;
-
-        &.-active {
-            background-color: $c-primary;
-            color: $c-white;
-            border-color: $c-primary;
-        }
-    }
 }
 
-.search-form__main-filters {
+.search-bar {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-@media screen and (min-width: 992px) {
-    .search-form-container {
-        display: grid;
-        grid-template-columns: 300px 1fr;
-        gap: 30px;
-        align-items: start;
-        max-width: 1240px;
-    }
+.search-input {
+    flex: 1;
+    min-width: 300px;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23666" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>') no-repeat 12px center;
+    background-size: 20px;
+}
 
-    .search-form__main-filters {
-        gap: 30px;
-    }
+.price-range {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 200px;
+}
 
-    .filter-group {
-        // This targets both filter groups within the new structure
-    }
+.price-input {
+    padding: 0.75rem;
+    border: 2px solid #e9ecef;
+    border-radius: 6px;
+    width: 80px;
+    text-align: center;
+}
 
-    .filter-group:last-of-type { // Specifically the tags filter
-        margin-top: 0; // Resets mobile margin
-    }
+.toggle-filters {
+    background: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filters-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.filters-container.active {
+    max-height: 300px;
+}
+
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.filter-group h4 {
+    margin-bottom: 0.75rem;
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filter-tag {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    color: #666;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.85rem;
+}
+
+.filter-tag.active {
+    background: #FF6B6B;
+    border-color: #FF6B6B;
+    color: white;
 }

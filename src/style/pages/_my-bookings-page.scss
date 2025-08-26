@@ -1,7 +1,28 @@
-.bookings-list {
+@import '../../style/base/var';
+
+.my-bookings-page {
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: $c-primary;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 3rem;
+    }
+}
+
+.bookings-container {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
 }
 
 .booking-card {
@@ -14,6 +35,15 @@
 
     &:hover {
         transform: translateY(-5px);
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+
+        &__image {
+            width: 100%;
+            height: 200px;
+        }
     }
 
     &__image {

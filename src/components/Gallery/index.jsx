@@ -14,7 +14,9 @@ const Gallery = ({ filteredData, favorites, onToggleFavorite }) => {
                         cover={house.cover}
                         title={house.title}
                         price={house.price}
-                                                isFavorite={favorites.has(house.id)}
+                        tags={house.tags}
+                        rating={house.rating}
+                        isFavorite={favorites.has(house.id)}
                         onToggleFavorite={onToggleFavorite}
                     />
                 ))
